@@ -11,4 +11,18 @@ package control;
  */
 public class ControlEmpleado {
     
+    
+    
+    public void iniciacontrol(){
+        
+    }
+    private void imprimereporte(){
+        
+    }
+    private void listaempleados(){
+        
+    }
+     private void grabarempleado() {
+         
+     }
 }
