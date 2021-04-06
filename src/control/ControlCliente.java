@@ -5,10 +5,20 @@
  */
 package control;
 
+import modelo.ConexionPGA;
+import modelo.modelo_cliente;
+
 /**
  *
  * @author USER
  */
 public class ControlCliente {
-    
+  private modelo_cliente mcliente;  
+  
+  
+  private void imprimereporte(){
+        ConexionPGA con=new ConexionPGA();  
+     
+          
+    }
 }

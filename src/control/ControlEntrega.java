@@ -5,10 +5,19 @@
  */
 package control;
 
+import modelo.ConexionPGA;
+import modelo.modelo_entrega;
+
 /**
  *
  * @author USER
  */
 public class ControlEntrega {
-    
+  private modelo_entrega mentrega; 
+  
+  private void imprimereporte(){
+        ConexionPGA con=new ConexionPGA();  
+     
+          
+    }
 }

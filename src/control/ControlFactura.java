@@ -5,10 +5,18 @@
  */
 package control;
 
+import modelo.ConexionPGA;
+import modelo.modelo_factura;
+
 /**
  *
  * @author USER
  */
 public class ControlFactura {
-    
+   private modelo_factura mfactura; 
+   private void imprimereporte(){
+        ConexionPGA con=new ConexionPGA();  
+     
+          
+    }
 }
