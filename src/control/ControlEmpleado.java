@@ -36,9 +36,9 @@ public class ControlEmpleado {
     }
 
    //botones
-    public void iniciacontrol(){
+    /*public void iniciacontrol(){
     vempleado.getBtnregistro().addActionListener(l -> grabarempleado());
-    }
+    }*/
     //reporte
     private void imprimereporte(){
         ConexionPGA con=new ConexionPGA(); 
@@ -56,15 +56,15 @@ public class ControlEmpleado {
     private void listaempleados(){
         
     }
-     private void grabarempleado() {
-      String id_empleado=vempleado.getTxtnombreusuario().getText();
-      String nombre=vempleado.getTxtnombre().getText();
-      String apellido=vempleado.getTxtapellido().getText();
-      String rol=(String) vempleado.getCbxrol().getSelectedItem();
-      modelo_empleados modelo=new  modelo_empleados();
-      modelo.setId_empleado(id_empleado);
-      modelo.setNombre(nombre);
-      modelo.setApellido(apellido);
-      modelo.setRol(rol);
-     }  
+    /*private void grabarempleado() {
+        String id_empleado=vempleado.getTxtnombreusuario().getText();
+        String nombre=vempleado.getTxtnombre().getText();
+        String apellido=vempleado.getTxtapellido().getText();
+        String rol=(String) vempleado.getCbxrol().getSelectedItem();
+        modelo_empleados modelo=new  modelo_empleados();
+        modelo.setId_empleado(id_empleado);
+        modelo.setNombre(nombre);
+        modelo.setApellido(apellido);
+        modelo.setRol(rol);
+     }  */
 }

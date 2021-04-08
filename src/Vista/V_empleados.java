@@ -8,19 +8,126 @@ package Vista;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /**
  *
  * @author foraneoblack
  */
-public class V_productos extends javax.swing.JFrame {
+public class V_empleados extends javax.swing.JFrame {
 
     /**
      * Creates new form V_productos
      */
-    public V_productos() {
+    public V_empleados() {
         initComponents();
+    }
+
+    public JButton getBtn_Actualizar() {
+        return btn_Actualizar;
+    }
+
+    public void setBtn_Actualizar(JButton btn_Actualizar) {
+        this.btn_Actualizar = btn_Actualizar;
+    }
+
+    public JButton getBtn_Clientes() {
+        return btn_Clientes;
+    }
+
+    public void setBtn_Clientes(JButton btn_Clientes) {
+        this.btn_Clientes = btn_Clientes;
+    }
+
+    public JButton getBtn_Configuracion() {
+        return btn_Configuracion;
+    }
+
+    public void setBtn_Configuracion(JButton btn_Configuracion) {
+        this.btn_Configuracion = btn_Configuracion;
+    }
+
+    public JButton getBtn_Editar() {
+        return btn_Editar;
+    }
+
+    public void setBtn_Editar(JButton btn_Editar) {
+        this.btn_Editar = btn_Editar;
+    }
+
+    public JButton getBtn_Eliminar() {
+        return btn_Eliminar;
+    }
+
+    public void setBtn_Eliminar(JButton btn_Eliminar) {
+        this.btn_Eliminar = btn_Eliminar;
+    }
+
+    public JButton getBtn_Facturas() {
+        return btn_Facturas;
+    }
+
+    public void setBtn_Facturas(JButton btn_Facturas) {
+        this.btn_Facturas = btn_Facturas;
+    }
+
+    public JButton getBtn_Mesas() {
+        return btn_Mesas;
+    }
+
+    public void setBtn_Mesas(JButton btn_Mesas) {
+        this.btn_Mesas = btn_Mesas;
+    }
+
+    public JButton getBtn_Nuevo() {
+        return btn_Nuevo;
+    }
+
+    public void setBtn_Nuevo(JButton btn_Nuevo) {
+        this.btn_Nuevo = btn_Nuevo;
+    }
+
+    public JButton getBtn_Productos() {
+        return btn_Productos;
+    }
+
+    public void setBtn_Productos(JButton btn_Productos) {
+        this.btn_Productos = btn_Productos;
+    }
+
+    public JButton getBtn_Reporte() {
+        return btn_Reporte;
+    }
+
+    public void setBtn_Reporte(JButton btn_Reporte) {
+        this.btn_Reporte = btn_Reporte;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JPanel getJp_productos() {
+        return jp_productos;
+    }
+
+    public void setJp_productos(JPanel jp_productos) {
+        this.jp_productos = jp_productos;
+    }
+
+    public JTable getTb_Empleados() {
+        return tb_Empleados;
+    }
+
+    public void setTb_Empleados(JTable tb_Empleados) {
+        this.tb_Empleados = tb_Empleados;
     }
 
     /**
@@ -44,7 +151,7 @@ public class V_productos extends javax.swing.JFrame {
         btn_Editar = new javax.swing.JButton();
         btn_Eliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tb_Productos = new javax.swing.JTable();
+        tb_Empleados = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,21 +210,21 @@ public class V_productos extends javax.swing.JFrame {
         btn_Eliminar.setBorderPainted(false);
         btn_Eliminar.setContentAreaFilled(false);
 
-        tb_Productos.setBackground(new java.awt.Color(222, 138, 53));
-        tb_Productos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(222, 138, 53), 2, true));
-        tb_Productos.setForeground(new java.awt.Color(222, 138, 53));
-        tb_Productos.setModel(new javax.swing.table.DefaultTableModel(
+        tb_Empleados.setBackground(new java.awt.Color(222, 138, 53));
+        tb_Empleados.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(222, 138, 53), 2, true));
+        tb_Empleados.setForeground(new java.awt.Color(222, 138, 53));
+        tb_Empleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Id_Producto", "Nombre", "Id_Tipo", "Cantidad", "Descripcion", "Precio", "Imagen"
+                "Id_Empleado", "Nombre", "Apellido", "Rol"
             }
         ));
-        jScrollPane1.setViewportView(tb_Productos);
+        jScrollPane1.setViewportView(tb_Empleados);
 
         javax.swing.GroupLayout jp_productosLayout = new javax.swing.GroupLayout(jp_productos);
         jp_productos.setLayout(jp_productosLayout);
@@ -222,14 +329,14 @@ public class V_productos extends javax.swing.JFrame {
     private javax.swing.JButton btn_Reporte;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jp_productos;
-    private javax.swing.JTable tb_Productos;
+    private javax.swing.JTable tb_Empleados;
     // End of variables declaration//GEN-END:variables
 
     class FondoProductos extends JPanel{
         private Image imagen;
         
         public void paint(Graphics g){
-            imagen=new ImageIcon(getClass().getResource("/Imagenes/Fondo_productos.png")).getImage();
+            imagen=new ImageIcon(getClass().getResource("/Imagenes/Fondo_Empleados.png")).getImage();
             
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
