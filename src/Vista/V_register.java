@@ -58,13 +58,7 @@ public class V_register extends javax.swing.JFrame {
         this.txtContrasena = txtContrasena;
     }
 
-    public JTextField getTxtContrasena1() {
-        return txtContrasena1;
-    }
-
-    public void setTxtContrasena1(JTextField txtContrasena1) {
-        this.txtContrasena1 = txtContrasena1;
-    }
+   
 
     public JTextField getTxt_Apellido() {
         return txt_Apellido;
