@@ -8,6 +8,7 @@ package Vista;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -36,7 +37,7 @@ public class V_mesas extends javax.swing.JFrame {
         btn_mesas = new javax.swing.JButton();
         btn_producto = new javax.swing.JButton();
         btn_cliente = new javax.swing.JButton();
-        btn_proveedores = new javax.swing.JButton();
+        btn_Factura = new javax.swing.JButton();
         btn_configuracion = new javax.swing.JButton();
         btn_n1 = new javax.swing.JButton();
         btn_n2 = new javax.swing.JButton();
@@ -50,6 +51,7 @@ public class V_mesas extends javax.swing.JFrame {
         btn_n10 = new javax.swing.JButton();
         btn_n11 = new javax.swing.JButton();
         btn_n12 = new javax.swing.JButton();
+        btn_Reporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,9 +67,9 @@ public class V_mesas extends javax.swing.JFrame {
         btn_cliente.setBorderPainted(false);
         btn_cliente.setContentAreaFilled(false);
 
-        btn_proveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Proveedores.png"))); // NOI18N
-        btn_proveedores.setBorderPainted(false);
-        btn_proveedores.setContentAreaFilled(false);
+        btn_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Proveedores.png"))); // NOI18N
+        btn_Factura.setBorderPainted(false);
+        btn_Factura.setContentAreaFilled(false);
 
         btn_configuracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Configuracion.png"))); // NOI18N
         btn_configuracion.setBorderPainted(false);
@@ -121,25 +123,18 @@ public class V_mesas extends javax.swing.JFrame {
         btn_n12.setBorderPainted(false);
         btn_n12.setContentAreaFilled(false);
 
+        btn_Reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Reporte.png"))); // NOI18N
+        btn_Reporte.setBorderPainted(false);
+        btn_Reporte.setContentAreaFilled(false);
+
         javax.swing.GroupLayout jp_mesasLayout = new javax.swing.GroupLayout(jp_mesas);
         jp_mesas.setLayout(jp_mesasLayout);
         jp_mesasLayout.setHorizontalGroup(
             jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_mesasLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_mesasLayout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(btn_mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(btn_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_mesasLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btn_n1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_n2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,7 +147,6 @@ public class V_mesas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_n6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_mesasLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btn_n7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_n8, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,26 +159,43 @@ public class V_mesas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_n12, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(jp_mesasLayout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(btn_mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(btn_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Factura, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jp_mesasLayout.setVerticalGroup(
             jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_mesasLayout.createSequentialGroup()
                 .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_n5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jp_mesasLayout.createSequentialGroup()
-                        .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_mesas))
-                        .addGap(160, 160, 160)
-                        .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_n2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_n1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_n3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_n4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btn_n6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jp_mesasLayout.createSequentialGroup()
+                            .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_n6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jp_mesasLayout.createSequentialGroup()
+                            .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btn_Factura, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_mesas)
+                                .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(160, 160, 160)
+                            .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btn_n2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_n1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_n3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_n4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_n11, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,9 +221,162 @@ public class V_mesas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getBtn_Factura() {
+        return btn_Factura;
+    }
+
+    public void setBtn_Factura(JButton btn_Factura) {
+        this.btn_Factura = btn_Factura;
+    }
+
+    public JButton getBtn_Reporte() {
+        return btn_Reporte;
+    }
+
+    public void setBtn_Reporte(JButton btn_Reporte) {
+        this.btn_Reporte = btn_Reporte;
+    }
+
+    public JButton getBtn_cliente() {
+        return btn_cliente;
+    }
+
+    public void setBtn_cliente(JButton btn_cliente) {
+        this.btn_cliente = btn_cliente;
+    }
+
+    public JButton getBtn_configuracion() {
+        return btn_configuracion;
+    }
+
+    public void setBtn_configuracion(JButton btn_configuracion) {
+        this.btn_configuracion = btn_configuracion;
+    }
+
+    public JButton getBtn_mesas() {
+        return btn_mesas;
+    }
+
+    public void setBtn_mesas(JButton btn_mesas) {
+        this.btn_mesas = btn_mesas;
+    }
+
+    public JButton getBtn_n1() {
+        return btn_n1;
+    }
+
+    public void setBtn_n1(JButton btn_n1) {
+        this.btn_n1 = btn_n1;
+    }
+
+    public JButton getBtn_n10() {
+        return btn_n10;
+    }
+
+    public void setBtn_n10(JButton btn_n10) {
+        this.btn_n10 = btn_n10;
+    }
+
+    public JButton getBtn_n11() {
+        return btn_n11;
+    }
+
+    public void setBtn_n11(JButton btn_n11) {
+        this.btn_n11 = btn_n11;
+    }
+
+    public JButton getBtn_n12() {
+        return btn_n12;
+    }
+
+    public void setBtn_n12(JButton btn_n12) {
+        this.btn_n12 = btn_n12;
+    }
+
+    public JButton getBtn_n2() {
+        return btn_n2;
+    }
+
+    public void setBtn_n2(JButton btn_n2) {
+        this.btn_n2 = btn_n2;
+    }
+
+    public JButton getBtn_n3() {
+        return btn_n3;
+    }
+
+    public void setBtn_n3(JButton btn_n3) {
+        this.btn_n3 = btn_n3;
+    }
+
+    public JButton getBtn_n4() {
+        return btn_n4;
+    }
+
+    public void setBtn_n4(JButton btn_n4) {
+        this.btn_n4 = btn_n4;
+    }
+
+    public JButton getBtn_n5() {
+        return btn_n5;
+    }
+
+    public void setBtn_n5(JButton btn_n5) {
+        this.btn_n5 = btn_n5;
+    }
+
+    public JButton getBtn_n6() {
+        return btn_n6;
+    }
+
+    public void setBtn_n6(JButton btn_n6) {
+        this.btn_n6 = btn_n6;
+    }
+
+    public JButton getBtn_n7() {
+        return btn_n7;
+    }
+
+    public void setBtn_n7(JButton btn_n7) {
+        this.btn_n7 = btn_n7;
+    }
+
+    public JButton getBtn_n8() {
+        return btn_n8;
+    }
+
+    public void setBtn_n8(JButton btn_n8) {
+        this.btn_n8 = btn_n8;
+    }
+
+    public JButton getBtn_n9() {
+        return btn_n9;
+    }
+
+    public void setBtn_n9(JButton btn_n9) {
+        this.btn_n9 = btn_n9;
+    }
+
+    public JButton getBtn_producto() {
+        return btn_producto;
+    }
+
+    public void setBtn_producto(JButton btn_producto) {
+        this.btn_producto = btn_producto;
+    }
+
+    public JPanel getJp_mesas() {
+        return jp_mesas;
+    }
+
+    public void setJp_mesas(JPanel jp_mesas) {
+        this.jp_mesas = jp_mesas;
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Factura;
+    private javax.swing.JButton btn_Reporte;
     private javax.swing.JButton btn_cliente;
     private javax.swing.JButton btn_configuracion;
     private javax.swing.JButton btn_mesas;
@@ -229,7 +393,6 @@ public class V_mesas extends javax.swing.JFrame {
     private javax.swing.JButton btn_n8;
     private javax.swing.JButton btn_n9;
     private javax.swing.JButton btn_producto;
-    private javax.swing.JButton btn_proveedores;
     private javax.swing.JPanel jp_mesas;
     // End of variables declaration//GEN-END:variables
     

@@ -8,7 +8,9 @@ package Vista;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -33,15 +35,15 @@ public class V_loggins extends javax.swing.JFrame {
     private void initComponents() {
 
         jp_Fondo = new FondoPrincipal();
-        btnIniciar = new javax.swing.JButton();
+        btn_Iniciar = new javax.swing.JButton();
         txtContrasena = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton Iniciar.png"))); // NOI18N
-        btnIniciar.setBorderPainted(false);
-        btnIniciar.setContentAreaFilled(false);
+        btn_Iniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton Iniciar.png"))); // NOI18N
+        btn_Iniciar.setBorderPainted(false);
+        btn_Iniciar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jp_FondoLayout = new javax.swing.GroupLayout(jp_Fondo);
         jp_Fondo.setLayout(jp_FondoLayout);
@@ -56,7 +58,7 @@ public class V_loggins extends javax.swing.JFrame {
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jp_FondoLayout.createSequentialGroup()
                         .addGap(256, 256, 256)
-                        .addComponent(btnIniciar)))
+                        .addComponent(btn_Iniciar)))
                 .addContainerGap(257, Short.MAX_VALUE))
         );
         jp_FondoLayout.setVerticalGroup(
@@ -67,7 +69,7 @@ public class V_loggins extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnIniciar)
+                .addComponent(btn_Iniciar)
                 .addGap(19, 19, 19))
         );
 
@@ -86,7 +88,7 @@ public class V_loggins extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btn_Iniciar;
     private javax.swing.JPanel jp_Fondo;
     private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtNombre;
@@ -104,5 +106,29 @@ public class V_loggins extends javax.swing.JFrame {
             super.paint(g);
         }
        }
+
+    public JButton getBtn_Iniciar() {
+        return btn_Iniciar;
+    }
+
+    public void setBtn_Iniciar(JButton btn_Iniciar) {
+        this.btn_Iniciar = btn_Iniciar;
+    }
+
+    public JTextField getTxtContrasena() {
+        return txtContrasena;
+    }
+
+    public void setTxtContrasena(JTextField txtContrasena) {
+        this.txtContrasena = txtContrasena;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public void setTxtNombre(JTextField txtNombre) {
+        this.txtNombre = txtNombre;
+    }
 
 }

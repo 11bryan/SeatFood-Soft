@@ -8,7 +8,11 @@ package Vista;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -34,34 +38,34 @@ public class V_clientes extends javax.swing.JFrame {
 
         jDialog1 = new javax.swing.JDialog();
         jp_dialogClient = new FondoDialogCliente();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        btn_Guardar = new javax.swing.JButton();
+        btn_Cancelar = new javax.swing.JButton();
         txt_idUser = new javax.swing.JTextField();
         txt_Nombre = new javax.swing.JTextField();
         txt_apellido = new javax.swing.JTextField();
         txt_direccion = new javax.swing.JTextField();
         txt_telefono = new javax.swing.JTextField();
         jp_clientes = new FondoClientes();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        btn_Mesas = new javax.swing.JButton();
+        btn_Producto = new javax.swing.JButton();
+        btn_Clientes = new javax.swing.JButton();
+        btn_factura = new javax.swing.JButton();
+        btn_configuracion = new javax.swing.JButton();
+        btn_Actualizar = new javax.swing.JButton();
+        btn_Nuevo = new javax.swing.JButton();
+        btn_Editar = new javax.swing.JButton();
+        btn_Eliminar = new javax.swing.JButton();
+        btn_Reporte = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tb_Clientes = new javax.swing.JTable();
 
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Guardar.png"))); // NOI18N
-        jButton11.setBorderPainted(false);
-        jButton11.setContentAreaFilled(false);
+        btn_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Guardar.png"))); // NOI18N
+        btn_Guardar.setBorderPainted(false);
+        btn_Guardar.setContentAreaFilled(false);
 
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cancelar.png"))); // NOI18N
-        jButton12.setBorderPainted(false);
-        jButton12.setContentAreaFilled(false);
+        btn_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cancelar.png"))); // NOI18N
+        btn_Cancelar.setBorderPainted(false);
+        btn_Cancelar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jp_dialogClientLayout = new javax.swing.GroupLayout(jp_dialogClient);
         jp_dialogClient.setLayout(jp_dialogClientLayout);
@@ -69,7 +73,7 @@ public class V_clientes extends javax.swing.JFrame {
             jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dialogClientLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btn_Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dialogClientLayout.createSequentialGroup()
                 .addContainerGap(145, Short.MAX_VALUE)
                 .addGroup(jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,7 +86,7 @@ public class V_clientes extends javax.swing.JFrame {
             .addGroup(jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dialogClientLayout.createSequentialGroup()
                     .addContainerGap(176, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(58, 58, 58)))
         );
         jp_dialogClientLayout.setVerticalGroup(
@@ -99,12 +103,12 @@ public class V_clientes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(jButton11)
+                .addComponent(btn_Guardar)
                 .addGap(19, 19, 19))
             .addGroup(jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dialogClientLayout.createSequentialGroup()
                     .addContainerGap(373, Short.MAX_VALUE)
-                    .addComponent(jButton12)
+                    .addComponent(btn_Cancelar)
                     .addGap(18, 18, 18)))
         );
 
@@ -125,75 +129,75 @@ public class V_clientes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_mesas.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_Mesas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_mesas.png"))); // NOI18N
+        btn_Mesas.setBorderPainted(false);
+        btn_Mesas.setContentAreaFilled(false);
+        btn_Mesas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_MesasActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Productos.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_Producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Productos.png"))); // NOI18N
+        btn_Producto.setBorderPainted(false);
+        btn_Producto.setContentAreaFilled(false);
+        btn_Producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_ProductoActionPerformed(evt);
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Clientes.png"))); // NOI18N
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Clientes.png"))); // NOI18N
+        btn_Clientes.setBorderPainted(false);
+        btn_Clientes.setContentAreaFilled(false);
+        btn_Clientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_ClientesActionPerformed(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Proveedores.png"))); // NOI18N
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btn_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Proveedores.png"))); // NOI18N
+        btn_factura.setBorderPainted(false);
+        btn_factura.setContentAreaFilled(false);
+        btn_factura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btn_facturaActionPerformed(evt);
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Configuracion.png"))); // NOI18N
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btn_configuracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Configuracion.png"))); // NOI18N
+        btn_configuracion.setBorderPainted(false);
+        btn_configuracion.setContentAreaFilled(false);
+        btn_configuracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btn_configuracionActionPerformed(evt);
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Actualizar.png"))); // NOI18N
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
+        btn_Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Actualizar.png"))); // NOI18N
+        btn_Actualizar.setBorderPainted(false);
+        btn_Actualizar.setContentAreaFilled(false);
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Nuevo.png"))); // NOI18N
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
+        btn_Nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Nuevo.png"))); // NOI18N
+        btn_Nuevo.setBorderPainted(false);
+        btn_Nuevo.setContentAreaFilled(false);
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Editar.png"))); // NOI18N
-        jButton8.setBorderPainted(false);
-        jButton8.setContentAreaFilled(false);
+        btn_Editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Editar.png"))); // NOI18N
+        btn_Editar.setBorderPainted(false);
+        btn_Editar.setContentAreaFilled(false);
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Eliminar.png"))); // NOI18N
-        jButton9.setBorderPainted(false);
-        jButton9.setContentAreaFilled(false);
+        btn_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Eliminar.png"))); // NOI18N
+        btn_Eliminar.setBorderPainted(false);
+        btn_Eliminar.setContentAreaFilled(false);
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Reporte.png"))); // NOI18N
-        jButton10.setBorderPainted(false);
-        jButton10.setContentAreaFilled(false);
+        btn_Reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Reporte.png"))); // NOI18N
+        btn_Reporte.setBorderPainted(false);
+        btn_Reporte.setContentAreaFilled(false);
 
-        jTable1.setBackground(new java.awt.Color(222, 138, 53));
-        jTable1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(222, 138, 53), 2, true));
-        jTable1.setForeground(new java.awt.Color(222, 138, 53));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tb_Clientes.setBackground(new java.awt.Color(222, 138, 53));
+        tb_Clientes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(222, 138, 53), 2, true));
+        tb_Clientes.setForeground(new java.awt.Color(222, 138, 53));
+        tb_Clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -204,7 +208,7 @@ public class V_clientes extends javax.swing.JFrame {
                 "Id_Usuario", "Nombre", "Apellido", "Direccion", "Telefono"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tb_Clientes);
 
         javax.swing.GroupLayout jp_clientesLayout = new javax.swing.GroupLayout(jp_clientes);
         jp_clientes.setLayout(jp_clientesLayout);
@@ -214,27 +218,27 @@ public class V_clientes extends javax.swing.JFrame {
                 .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_clientesLayout.createSequentialGroup()
                         .addGap(144, 144, 144)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jp_clientesLayout.createSequentialGroup()
                         .addGap(122, 122, 122)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(jp_clientesLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
@@ -246,22 +250,22 @@ public class V_clientes extends javax.swing.JFrame {
             .addGroup(jp_clientesLayout.createSequentialGroup()
                 .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jp_clientesLayout.createSequentialGroup()
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10))
                     .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jp_clientesLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btn_Mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41)
                 .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(57, Short.MAX_VALUE))
@@ -281,45 +285,205 @@ public class V_clientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_MesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MesasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_MesasActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_ProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProductoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_ProductoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_ClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClientesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_ClientesActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btn_facturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_facturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btn_facturaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btn_configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configuracionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btn_configuracionActionPerformed
+
+    public JButton getBtn_Actualizar() {
+        return btn_Actualizar;
+    }
+
+    public void setBtn_Actualizar(JButton btn_Actualizar) {
+        this.btn_Actualizar = btn_Actualizar;
+    }
+
+    public JButton getBtn_Cancelar() {
+        return btn_Cancelar;
+    }
+
+    public void setBtn_Cancelar(JButton btn_Cancelar) {
+        this.btn_Cancelar = btn_Cancelar;
+    }
+
+    public JButton getBtn_Clientes() {
+        return btn_Clientes;
+    }
+
+    public void setBtn_Clientes(JButton btn_Clientes) {
+        this.btn_Clientes = btn_Clientes;
+    }
+
+    public JButton getBtn_Editar() {
+        return btn_Editar;
+    }
+
+    public void setBtn_Editar(JButton btn_Editar) {
+        this.btn_Editar = btn_Editar;
+    }
+
+    public JButton getBtn_Eliminar() {
+        return btn_Eliminar;
+    }
+
+    public void setBtn_Eliminar(JButton btn_Eliminar) {
+        this.btn_Eliminar = btn_Eliminar;
+    }
+
+    public JButton getBtn_Guardar() {
+        return btn_Guardar;
+    }
+
+    public void setBtn_Guardar(JButton btn_Guardar) {
+        this.btn_Guardar = btn_Guardar;
+    }
+
+    public JButton getBtn_Mesas() {
+        return btn_Mesas;
+    }
+
+    public void setBtn_Mesas(JButton btn_Mesas) {
+        this.btn_Mesas = btn_Mesas;
+    }
+
+    public JButton getBtn_Nuevo() {
+        return btn_Nuevo;
+    }
+
+    public void setBtn_Nuevo(JButton btn_Nuevo) {
+        this.btn_Nuevo = btn_Nuevo;
+    }
+
+    public JButton getBtn_Producto() {
+        return btn_Producto;
+    }
+
+    public void setBtn_Producto(JButton btn_Producto) {
+        this.btn_Producto = btn_Producto;
+    }
+
+    public JButton getBtn_Reporte() {
+        return btn_Reporte;
+    }
+
+    public void setBtn_Reporte(JButton btn_Reporte) {
+        this.btn_Reporte = btn_Reporte;
+    }
+
+    public JButton getBtn_configuracion() {
+        return btn_configuracion;
+    }
+
+    public void setBtn_configuracion(JButton btn_configuracion) {
+        this.btn_configuracion = btn_configuracion;
+    }
+
+    public JButton getBtn_factura() {
+        return btn_factura;
+    }
+
+    public void setBtn_factura(JButton btn_factura) {
+        this.btn_factura = btn_factura;
+    }
+
+    public JDialog getjDialog1() {
+        return jDialog1;
+    }
+
+    public void setjDialog1(JDialog jDialog1) {
+        this.jDialog1 = jDialog1;
+    }
+
+    public JPanel getJp_dialogClient() {
+        return jp_dialogClient;
+    }
+
+    public void setJp_dialogClient(JPanel jp_dialogClient) {
+        this.jp_dialogClient = jp_dialogClient;
+    }
+
+    public JTable getTb_Clientes() {
+        return tb_Clientes;
+    }
+
+    public void setTb_Clientes(JTable tb_Clientes) {
+        this.tb_Clientes = tb_Clientes;
+    }
+
+    public JTextField getTxt_Nombre() {
+        return txt_Nombre;
+    }
+
+    public void setTxt_Nombre(JTextField txt_Nombre) {
+        this.txt_Nombre = txt_Nombre;
+    }
+
+    public JTextField getTxt_apellido() {
+        return txt_apellido;
+    }
+
+    public void setTxt_apellido(JTextField txt_apellido) {
+        this.txt_apellido = txt_apellido;
+    }
+
+    public JTextField getTxt_direccion() {
+        return txt_direccion;
+    }
+
+    public void setTxt_direccion(JTextField txt_direccion) {
+        this.txt_direccion = txt_direccion;
+    }
+
+    public JTextField getTxt_idUser() {
+        return txt_idUser;
+    }
+
+    public void setTxt_idUser(JTextField txt_idUser) {
+        this.txt_idUser = txt_idUser;
+    }
+
+    public JTextField getTxt_telefono() {
+        return txt_telefono;
+    }
+
+    public void setTxt_telefono(JTextField txt_telefono) {
+        this.txt_telefono = txt_telefono;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton btn_Actualizar;
+    private javax.swing.JButton btn_Cancelar;
+    private javax.swing.JButton btn_Clientes;
+    private javax.swing.JButton btn_Editar;
+    private javax.swing.JButton btn_Eliminar;
+    private javax.swing.JButton btn_Guardar;
+    private javax.swing.JButton btn_Mesas;
+    private javax.swing.JButton btn_Nuevo;
+    private javax.swing.JButton btn_Producto;
+    private javax.swing.JButton btn_Reporte;
+    private javax.swing.JButton btn_configuracion;
+    private javax.swing.JButton btn_factura;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel jp_clientes;
     private javax.swing.JPanel jp_dialogClient;
+    private javax.swing.JTable tb_Clientes;
     private javax.swing.JTextField txt_Nombre;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_direccion;

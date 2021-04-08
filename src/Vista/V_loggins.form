@@ -52,7 +52,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
-                          <Component id="btnIniciar" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_Iniciar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="257" max="32767" attributes="0"/>
@@ -67,14 +67,14 @@
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="txtContrasena" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnIniciar" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_Iniciar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnIniciar">
+        <Component class="javax.swing.JButton" name="btn_Iniciar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagenes/Boton Iniciar.png"/>

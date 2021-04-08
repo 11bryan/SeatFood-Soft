@@ -46,23 +46,25 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtContrasena2" alignment="1" min="-2" pref="245" max="-2" attributes="0"/>
-                              <Component id="txtNombre2" alignment="1" min="-2" pref="245" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="txtContrasena" alignment="1" min="-2" pref="245" max="-2" attributes="0"/>
-                              <Component id="txtNombre" alignment="1" min="-2" pref="245" max="-2" attributes="0"/>
+                              <Component id="txt_Nombre" alignment="1" min="-2" pref="245" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtNombre1" min="-2" pref="245" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" min="-2" pref="231" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="txt_Apellido" min="-2" pref="245" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txt_NombreUsuario" min="-2" pref="245" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
+                                  <Component id="cb_Rol" min="-2" pref="231" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
-                          <Component id="btnIniciar" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_Registrarse" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="7" max="32767" attributes="0"/>
@@ -73,33 +75,25 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="272" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtNombre" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="txtNombre1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtContrasena" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="txtNombre2" min="-2" pref="38" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="txtContrasena2" min="-2" pref="38" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txt_Nombre" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="txt_Apellido" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="txt_NombreUsuario" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="btnIniciar" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtContrasena" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="cb_Rol" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="btn_Registrarse" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnIniciar">
+        <Component class="javax.swing.JButton" name="btn_Registrarse">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagenes/btn-Registro.png"/>
@@ -108,17 +102,15 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="txt_Apellido">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txt_NombreUsuario">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txt_Nombre">
+        </Component>
         <Component class="javax.swing.JTextField" name="txtContrasena">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNombre">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNombre1">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNombre2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtContrasena2">
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="cb_Rol">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">

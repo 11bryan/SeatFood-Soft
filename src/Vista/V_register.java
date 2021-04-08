@@ -8,7 +8,10 @@ package Vista;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -23,6 +26,70 @@ public class V_register extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtn_Registrarse() {
+        return btn_Registrarse;
+    }
+
+    public void setBtn_Registrarse(JButton btn_Registrarse) {
+        this.btn_Registrarse = btn_Registrarse;
+    }
+
+    public JComboBox<String> getCb_Rol() {
+        return cb_Rol;
+    }
+
+    public void setCb_Rol(JComboBox<String> cb_Rol) {
+        this.cb_Rol = cb_Rol;
+    }
+
+    public JPanel getJp_Fondo() {
+        return jp_Fondo;
+    }
+
+    public void setJp_Fondo(JPanel jp_Fondo) {
+        this.jp_Fondo = jp_Fondo;
+    }
+
+    public JTextField getTxtContrasena() {
+        return txtContrasena;
+    }
+
+    public void setTxtContrasena(JTextField txtContrasena) {
+        this.txtContrasena = txtContrasena;
+    }
+
+    public JTextField getTxtContrasena1() {
+        return txtContrasena1;
+    }
+
+    public void setTxtContrasena1(JTextField txtContrasena1) {
+        this.txtContrasena1 = txtContrasena1;
+    }
+
+    public JTextField getTxt_Apellido() {
+        return txt_Apellido;
+    }
+
+    public void setTxt_Apellido(JTextField txt_Apellido) {
+        this.txt_Apellido = txt_Apellido;
+    }
+
+    public JTextField getTxt_Nombre() {
+        return txt_Nombre;
+    }
+
+    public void setTxt_Nombre(JTextField txt_Nombre) {
+        this.txt_Nombre = txt_Nombre;
+    }
+
+    public JTextField getTxt_NombreUsuario() {
+        return txt_NombreUsuario;
+    }
+
+    public void setTxt_NombreUsuario(JTextField txt_NombreUsuario) {
+        this.txt_NombreUsuario = txt_NombreUsuario;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,21 +100,20 @@ public class V_register extends javax.swing.JFrame {
     private void initComponents() {
 
         jp_Fondo = new FondoPrincipal();
-        btnIniciar = new javax.swing.JButton();
+        btn_Registrarse = new javax.swing.JButton();
+        txt_Apellido = new javax.swing.JTextField();
+        txt_NombreUsuario = new javax.swing.JTextField();
+        txt_Nombre = new javax.swing.JTextField();
         txtContrasena = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtNombre1 = new javax.swing.JTextField();
-        txtNombre2 = new javax.swing.JTextField();
-        txtContrasena2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_Rol = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn-Registro.png"))); // NOI18N
-        btnIniciar.setBorderPainted(false);
-        btnIniciar.setContentAreaFilled(false);
+        btn_Registrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn-Registro.png"))); // NOI18N
+        btn_Registrarse.setBorderPainted(false);
+        btn_Registrarse.setContentAreaFilled(false);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jp_FondoLayout = new javax.swing.GroupLayout(jp_Fondo);
         jp_Fondo.setLayout(jp_FondoLayout);
@@ -58,40 +124,36 @@ public class V_register extends javax.swing.JFrame {
                     .addGroup(jp_FondoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtContrasena2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
-                        .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jp_FondoLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jp_FondoLayout.createSequentialGroup()
+                                .addGap(275, 275, 275)
+                                .addComponent(cb_Rol, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jp_FondoLayout.createSequentialGroup()
                         .addGap(256, 256, 256)
-                        .addComponent(btnIniciar)))
+                        .addComponent(btn_Registrarse)))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
         jp_FondoLayout.setVerticalGroup(
             jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_FondoLayout.createSequentialGroup()
                 .addContainerGap(272, Short.MAX_VALUE)
-                .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_FondoLayout.createSequentialGroup()
-                        .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_FondoLayout.createSequentialGroup()
-                        .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(txtContrasena2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(btnIniciar)
+                .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_Rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(btn_Registrarse)
                 .addGap(19, 19, 19))
         );
 
@@ -110,14 +172,13 @@ public class V_register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIniciar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btn_Registrarse;
+    private javax.swing.JComboBox<String> cb_Rol;
     private javax.swing.JPanel jp_Fondo;
     private javax.swing.JTextField txtContrasena;
-    private javax.swing.JTextField txtContrasena2;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombre1;
-    private javax.swing.JTextField txtNombre2;
+    private javax.swing.JTextField txt_Apellido;
+    private javax.swing.JTextField txt_Nombre;
+    private javax.swing.JTextField txt_NombreUsuario;
     // End of variables declaration//GEN-END:variables
  
     class FondoPrincipal extends JPanel{
