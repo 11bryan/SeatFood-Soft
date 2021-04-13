@@ -15,14 +15,14 @@ public class modelo_cliente extends Cliente{
     public modelo_cliente() {
     }
 
-    public modelo_cliente(String cedula, String nombre, String apeliido, String direccion, String telefono) {
-        super(cedula, nombre, apeliido, direccion, telefono);
+    public modelo_cliente(String cedula, String nombre, String apellido, String direccion, String telefono) {
+        super(cedula, nombre, apellido, direccion, telefono);
     }
     
     public boolean grabarCliente(){
         String sql;
-        sql="INSERT INTO cliente(cedula,nombre,apeliido,direccion,telefono)";
-        sql+=" VALUES ('"+getCedula()+"','"+getNombre()+"','"+getApeliido()+"','"+getDireccion()+"','"+getTelefono()+"')";
+        sql="INSERT INTO cliente(cedula,nombre,apellido,direccion,telefono)";
+        sql+=" VALUES ('"+getCedula()+"','"+getNombre()+"','"+getApellido()+"','"+getDireccion()+"','"+getTelefono()+"')";
         if(con.noQuery(sql)==null){
             return true;
         }else{
@@ -48,7 +48,7 @@ public class modelo_cliente extends Cliente{
                 Cliente cliente =new Cliente();
                 cliente.setCedula(rs.getString("cedula"));
                 cliente.setNombre(rs.getString("nombre"));
-                cliente.setApeliido(rs.getString("apellido"));
+                cliente.setApellido(rs.getString("apellido"));
                 cliente.setDireccion(rs.getString("direccion"));
                 cliente.setTelefono(rs.getString("telefono"));
                 lista.add(cliente);
@@ -66,7 +66,7 @@ public class modelo_cliente extends Cliente{
     public boolean actualiza(String cedula){
         String sql;
         sql="UPDATE cliente set nombre='"+getNombre()+"',"
-                + "apellido='"+getApeliido()+"',"
+                + "apellido='"+getApellido()+"',"
                 + "direccion='"+getDireccion()+"',"
                 + "telefono='"+getTelefono()+"'"
                 + " where cedula='"+cedula+"'";
