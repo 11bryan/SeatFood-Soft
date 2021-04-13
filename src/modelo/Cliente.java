@@ -5,17 +5,17 @@ package modelo;
 public class Cliente {
     private String cedula;
     private String nombre;
-    private String apeliido;
+    private String apellido;
     private String direccion;
     private String telefono;
 
     public Cliente() {
     }
 
-    public Cliente(String cedula, String nombre, String apeliido, String direccion, String telefono) {
+    public Cliente(String cedula, String nombre, String apellido, String direccion, String telefono) {
         this.cedula = cedula;
         this.nombre = nombre;
-        this.apeliido = apeliido;
+        this.apellido = apellido;
         this.direccion = direccion;
         this.telefono = telefono;
     }
@@ -36,11 +36,11 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getApeliido() {
+    public String getApellido() {
         return apeliido;
     }
 
-    public void setApeliido(String apeliido) {
+    public void setApellido(String apeliido) {
         this.apeliido = apeliido;
     }
 
