@@ -8,7 +8,13 @@ package Vista;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -32,6 +38,19 @@ public class V_productos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialog_producto = new javax.swing.JDialog();
+        jp_dProductos = new javax.swing.JPanel();
+        txt_IdProducto = new javax.swing.JTextField();
+        txt_nombre = new javax.swing.JTextField();
+        txt_tipo = new javax.swing.JTextField();
+        txt_cantidad = new javax.swing.JTextField();
+        txt_descripcion = new javax.swing.JTextField();
+        txt_precio = new javax.swing.JTextField();
+        lb_foto = new javax.swing.JLabel();
+        btn_examinar = new javax.swing.JButton();
+        btn_Guardar_d = new javax.swing.JButton();
+        btn_Cancelar_d = new javax.swing.JButton();
+        btn_actualizar_d = new javax.swing.JButton();
         jp_productos = new FondoProductos();
         btn_Mesas = new javax.swing.JButton();
         btn_Productos = new javax.swing.JButton();
@@ -45,6 +64,96 @@ public class V_productos extends javax.swing.JFrame {
         btn_Eliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Productos = new javax.swing.JTable();
+
+        lb_foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 138, 53)));
+
+        btn_examinar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Examinar.png"))); // NOI18N
+        btn_examinar.setBorderPainted(false);
+        btn_examinar.setContentAreaFilled(false);
+
+        btn_Guardar_d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Guardar.png"))); // NOI18N
+        btn_Guardar_d.setBorderPainted(false);
+        btn_Guardar_d.setContentAreaFilled(false);
+
+        btn_Cancelar_d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cancelar.png"))); // NOI18N
+        btn_Cancelar_d.setBorderPainted(false);
+        btn_Cancelar_d.setContentAreaFilled(false);
+
+        btn_actualizar_d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Actualizar.png"))); // NOI18N
+        btn_actualizar_d.setBorderPainted(false);
+        btn_actualizar_d.setContentAreaFilled(false);
+
+        javax.swing.GroupLayout jp_dProductosLayout = new javax.swing.GroupLayout(jp_dProductos);
+        jp_dProductos.setLayout(jp_dProductosLayout);
+        jp_dProductosLayout.setHorizontalGroup(
+            jp_dProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_dProductosLayout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addGroup(jp_dProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dProductosLayout.createSequentialGroup()
+                        .addGroup(jp_dProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_IdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lb_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jp_dProductosLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(btn_examinar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dProductosLayout.createSequentialGroup()
+                        .addComponent(btn_actualizar_d, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_Cancelar_d, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_Guardar_d, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))))
+        );
+        jp_dProductosLayout.setVerticalGroup(
+            jp_dProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_dProductosLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(jp_dProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_Guardar_d, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Cancelar_d, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_actualizar_d, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(txt_IdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lb_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_examinar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout dialog_productoLayout = new javax.swing.GroupLayout(dialog_producto.getContentPane());
+        dialog_producto.getContentPane().setLayout(dialog_productoLayout);
+        dialog_productoLayout.setHorizontalGroup(
+            dialog_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_productoLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jp_dProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(126, Short.MAX_VALUE))
+        );
+        dialog_productoLayout.setVerticalGroup(
+            dialog_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_productoLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jp_dProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(261, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -208,21 +317,242 @@ public class V_productos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_FacturasActionPerformed
 
+    public JButton getBtn_Actualizar() {
+        return btn_Actualizar;
+    }
+
+    public void setBtn_Actualizar(JButton btn_Actualizar) {
+        this.btn_Actualizar = btn_Actualizar;
+    }
+
+    public JButton getBtn_Cancelar_d() {
+        return btn_Cancelar_d;
+    }
+
+    public void setBtn_Cancelar_d(JButton btn_Cancelar_d) {
+        this.btn_Cancelar_d = btn_Cancelar_d;
+    }
+
+    public JButton getBtn_Clientes() {
+        return btn_Clientes;
+    }
+
+    public void setBtn_Clientes(JButton btn_Clientes) {
+        this.btn_Clientes = btn_Clientes;
+    }
+
+    public JButton getBtn_Configuracion() {
+        return btn_Configuracion;
+    }
+
+    public void setBtn_Configuracion(JButton btn_Configuracion) {
+        this.btn_Configuracion = btn_Configuracion;
+    }
+
+    public JButton getBtn_Editar() {
+        return btn_Editar;
+    }
+
+    public void setBtn_Editar(JButton btn_Editar) {
+        this.btn_Editar = btn_Editar;
+    }
+
+    public JButton getBtn_Eliminar() {
+        return btn_Eliminar;
+    }
+
+    public void setBtn_Eliminar(JButton btn_Eliminar) {
+        this.btn_Eliminar = btn_Eliminar;
+    }
+
+    public JButton getBtn_Facturas() {
+        return btn_Facturas;
+    }
+
+    public void setBtn_Facturas(JButton btn_Facturas) {
+        this.btn_Facturas = btn_Facturas;
+    }
+
+    public JButton getBtn_Guardar_d() {
+        return btn_Guardar_d;
+    }
+
+    public void setBtn_Guardar_d(JButton btn_Guardar_d) {
+        this.btn_Guardar_d = btn_Guardar_d;
+    }
+
+    public JButton getBtn_Mesas() {
+        return btn_Mesas;
+    }
+
+    public void setBtn_Mesas(JButton btn_Mesas) {
+        this.btn_Mesas = btn_Mesas;
+    }
+
+    public JButton getBtn_Nuevo() {
+        return btn_Nuevo;
+    }
+
+    public void setBtn_Nuevo(JButton btn_Nuevo) {
+        this.btn_Nuevo = btn_Nuevo;
+    }
+
+    public JButton getBtn_Productos() {
+        return btn_Productos;
+    }
+
+    public void setBtn_Productos(JButton btn_Productos) {
+        this.btn_Productos = btn_Productos;
+    }
+
+    public JButton getBtn_Reporte() {
+        return btn_Reporte;
+    }
+
+    public void setBtn_Reporte(JButton btn_Reporte) {
+        this.btn_Reporte = btn_Reporte;
+    }
+
+    public JButton getBtn_actualizar_d() {
+        return btn_actualizar_d;
+    }
+
+    public void setBtn_actualizar_d(JButton btn_actualizar_d) {
+        this.btn_actualizar_d = btn_actualizar_d;
+    }
+
+    public JButton getBtn_examinar() {
+        return btn_examinar;
+    }
+
+    public void setBtn_examinar(JButton btn_examinar) {
+        this.btn_examinar = btn_examinar;
+    }
+
+    public JDialog getDialog_producto() {
+        return dialog_producto;
+    }
+
+    public void setDialog_producto(JDialog dialog_producto) {
+        this.dialog_producto = dialog_producto;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JPanel getJp_dProductos() {
+        return jp_dProductos;
+    }
+
+    public void setJp_dProductos(JPanel jp_dProductos) {
+        this.jp_dProductos = jp_dProductos;
+    }
+
+    public JPanel getJp_productos() {
+        return jp_productos;
+    }
+
+    public void setJp_productos(JPanel jp_productos) {
+        this.jp_productos = jp_productos;
+    }
+
+    public JLabel getLb_foto() {
+        return lb_foto;
+    }
+
+    public void setLb_foto(JLabel lb_foto) {
+        this.lb_foto = lb_foto;
+    }
+
+    public JTable getTb_Productos() {
+        return tb_Productos;
+    }
+
+    public void setTb_Productos(JTable tb_Productos) {
+        this.tb_Productos = tb_Productos;
+    }
+
+    public JTextField getTxt_IdProducto() {
+        return txt_IdProducto;
+    }
+
+    public void setTxt_IdProducto(JTextField txt_IdProducto) {
+        this.txt_IdProducto = txt_IdProducto;
+    }
+
+    public JTextField getTxt_cantidad() {
+        return txt_cantidad;
+    }
+
+    public void setTxt_cantidad(JTextField txt_cantidad) {
+        this.txt_cantidad = txt_cantidad;
+    }
+
+    public JTextField getTxt_descripcion() {
+        return txt_descripcion;
+    }
+
+    public void setTxt_descripcion(JTextField txt_descripcion) {
+        this.txt_descripcion = txt_descripcion;
+    }
+
+    public JTextField getTxt_nombre() {
+        return txt_nombre;
+    }
+
+    public void setTxt_nombre(JTextField txt_nombre) {
+        this.txt_nombre = txt_nombre;
+    }
+
+    public JTextField getTxt_precio() {
+        return txt_precio;
+    }
+
+    public void setTxt_precio(JTextField txt_precio) {
+        this.txt_precio = txt_precio;
+    }
+
+    public JTextField getTxt_tipo() {
+        return txt_tipo;
+    }
+
+    public void setTxt_tipo(JTextField txt_tipo) {
+        this.txt_tipo = txt_tipo;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Actualizar;
+    private javax.swing.JButton btn_Cancelar_d;
     private javax.swing.JButton btn_Clientes;
     private javax.swing.JButton btn_Configuracion;
     private javax.swing.JButton btn_Editar;
     private javax.swing.JButton btn_Eliminar;
     private javax.swing.JButton btn_Facturas;
+    private javax.swing.JButton btn_Guardar_d;
     private javax.swing.JButton btn_Mesas;
     private javax.swing.JButton btn_Nuevo;
     private javax.swing.JButton btn_Productos;
     private javax.swing.JButton btn_Reporte;
+    private javax.swing.JButton btn_actualizar_d;
+    private javax.swing.JButton btn_examinar;
+    private javax.swing.JDialog dialog_producto;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jp_dProductos;
     private javax.swing.JPanel jp_productos;
+    private javax.swing.JLabel lb_foto;
     private javax.swing.JTable tb_Productos;
+    private javax.swing.JTextField txt_IdProducto;
+    private javax.swing.JTextField txt_cantidad;
+    private javax.swing.JTextField txt_descripcion;
+    private javax.swing.JTextField txt_nombre;
+    private javax.swing.JTextField txt_precio;
+    private javax.swing.JTextField txt_tipo;
     // End of variables declaration//GEN-END:variables
 
     class FondoProductos extends JPanel{
@@ -230,6 +560,19 @@ public class V_productos extends javax.swing.JFrame {
         
         public void paint(Graphics g){
             imagen=new ImageIcon(getClass().getResource("/Imagenes/Fondo_productos.png")).getImage();
+            
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            
+            super.paint(g);
+        }
+    }
+    
+    class FondoProductosDialog extends JPanel{
+        private Image imagen;
+        
+        public void paint(Graphics g){
+            imagen=new ImageIcon(getClass().getResource("/Imagenes/dialog_productos.png")).getImage();
             
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);

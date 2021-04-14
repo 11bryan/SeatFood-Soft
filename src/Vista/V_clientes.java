@@ -36,15 +36,16 @@ public class V_clientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        dlg_clientes = new javax.swing.JDialog();
         jp_dialogClient = new FondoDialogCliente();
-        btn_Guardar = new javax.swing.JButton();
-        btn_Cancelar = new javax.swing.JButton();
+        btn_Guardar_diag = new javax.swing.JButton();
+        btn_Cancelar_diag = new javax.swing.JButton();
         txt_idUser = new javax.swing.JTextField();
         txt_Nombre = new javax.swing.JTextField();
         txt_apellido = new javax.swing.JTextField();
         txt_direccion = new javax.swing.JTextField();
         txt_telefono = new javax.swing.JTextField();
+        btn_Actualizar_diag = new javax.swing.JButton();
         jp_clientes = new FondoClientes();
         btn_Mesas = new javax.swing.JButton();
         btn_Producto = new javax.swing.JButton();
@@ -59,21 +60,27 @@ public class V_clientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Clientes = new javax.swing.JTable();
 
-        btn_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Guardar.png"))); // NOI18N
-        btn_Guardar.setBorderPainted(false);
-        btn_Guardar.setContentAreaFilled(false);
+        btn_Guardar_diag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Guardar.png"))); // NOI18N
+        btn_Guardar_diag.setBorderPainted(false);
+        btn_Guardar_diag.setContentAreaFilled(false);
 
-        btn_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cancelar.png"))); // NOI18N
-        btn_Cancelar.setBorderPainted(false);
-        btn_Cancelar.setContentAreaFilled(false);
+        btn_Cancelar_diag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cancelar.png"))); // NOI18N
+        btn_Cancelar_diag.setBorderPainted(false);
+        btn_Cancelar_diag.setContentAreaFilled(false);
+
+        btn_Actualizar_diag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Actualizar.png"))); // NOI18N
+        btn_Actualizar_diag.setBorderPainted(false);
+        btn_Actualizar_diag.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jp_dialogClientLayout = new javax.swing.GroupLayout(jp_dialogClient);
         jp_dialogClient.setLayout(jp_dialogClientLayout);
         jp_dialogClientLayout.setHorizontalGroup(
             jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dialogClientLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addComponent(btn_Actualizar_diag, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_Guardar_diag, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dialogClientLayout.createSequentialGroup()
                 .addContainerGap(145, Short.MAX_VALUE)
                 .addGroup(jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,43 +93,48 @@ public class V_clientes extends javax.swing.JFrame {
             .addGroup(jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dialogClientLayout.createSequentialGroup()
                     .addContainerGap(176, Short.MAX_VALUE)
-                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Cancelar_diag, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(58, 58, 58)))
         );
         jp_dialogClientLayout.setVerticalGroup(
             jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dialogClientLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(txt_idUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(btn_Guardar)
+                .addGroup(jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jp_dialogClientLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_Actualizar_diag))
+                    .addGroup(jp_dialogClientLayout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(txt_idUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addComponent(btn_Guardar_diag)))
                 .addGap(19, 19, 19))
             .addGroup(jp_dialogClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_dialogClientLayout.createSequentialGroup()
                     .addContainerGap(373, Short.MAX_VALUE)
-                    .addComponent(btn_Cancelar)
+                    .addComponent(btn_Cancelar_diag)
                     .addGap(18, 18, 18)))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        javax.swing.GroupLayout dlg_clientesLayout = new javax.swing.GroupLayout(dlg_clientes.getContentPane());
+        dlg_clientes.getContentPane().setLayout(dlg_clientesLayout);
+        dlg_clientesLayout.setHorizontalGroup(
+            dlg_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlg_clientesLayout.createSequentialGroup()
                 .addComponent(jp_dialogClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        dlg_clientesLayout.setVerticalGroup(
+            dlg_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlg_clientesLayout.createSequentialGroup()
                 .addComponent(jp_dialogClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -215,7 +227,20 @@ public class V_clientes extends javax.swing.JFrame {
         jp_clientesLayout.setHorizontalGroup(
             jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_clientesLayout.createSequentialGroup()
-                .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(122, 122, 122)
+                .addComponent(btn_Mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jp_clientesLayout.createSequentialGroup()
+                .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_clientesLayout.createSequentialGroup()
                         .addGap(144, 144, 144)
                         .addComponent(btn_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,42 +249,25 @@ public class V_clientes extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_clientesLayout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(btn_Mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(jp_clientesLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
         jp_clientesLayout.setVerticalGroup(
             jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_clientesLayout.createSequentialGroup()
-                .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jp_clientesLayout.createSequentialGroup()
-                        .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
-                    .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jp_clientesLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(btn_Mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btn_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_Mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(41, 41, 41)
                 .addGroup(jp_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -314,11 +322,11 @@ public class V_clientes extends javax.swing.JFrame {
     }
 
     public JButton getBtn_Cancelar() {
-        return btn_Cancelar;
+        return btn_Cancelar_diag;
     }
 
     public void setBtn_Cancelar(JButton btn_Cancelar) {
-        this.btn_Cancelar = btn_Cancelar;
+        this.btn_Cancelar_diag = btn_Cancelar;
     }
 
     public JButton getBtn_Clientes() {
@@ -346,11 +354,11 @@ public class V_clientes extends javax.swing.JFrame {
     }
 
     public JButton getBtn_Guardar() {
-        return btn_Guardar;
+        return btn_Guardar_diag;
     }
 
     public void setBtn_Guardar(JButton btn_Guardar) {
-        this.btn_Guardar = btn_Guardar;
+        this.btn_Guardar_diag = btn_Guardar;
     }
 
     public JButton getBtn_Mesas() {
@@ -402,11 +410,11 @@ public class V_clientes extends javax.swing.JFrame {
     }
 
     public JDialog getjDialog1() {
-        return jDialog1;
+        return dlg_clientes;
     }
 
     public void setjDialog1(JDialog jDialog1) {
-        this.jDialog1 = jDialog1;
+        this.dlg_clientes = jDialog1;
     }
 
     public JPanel getJp_dialogClient() {
@@ -465,21 +473,62 @@ public class V_clientes extends javax.swing.JFrame {
         this.txt_telefono = txt_telefono;
     }
 
+    public JButton getBtn_Actualizar_diag() {
+        return btn_Actualizar_diag;
+    }
+
+    public void setBtn_Actualizar_diag(JButton btn_Actualizar_diag) {
+        this.btn_Actualizar_diag = btn_Actualizar_diag;
+    }
+
+    public JButton getBtn_Cancelar_diag() {
+        return btn_Cancelar_diag;
+    }
+
+    public void setBtn_Cancelar_diag(JButton btn_Cancelar_diag) {
+        this.btn_Cancelar_diag = btn_Cancelar_diag;
+    }
+
+    public JButton getBtn_Guardar_diag() {
+        return btn_Guardar_diag;
+    }
+
+    public void setBtn_Guardar_diag(JButton btn_Guardar_diag) {
+        this.btn_Guardar_diag = btn_Guardar_diag;
+    }
+
+    public JDialog getDlg_clientes() {
+        return dlg_clientes;
+    }
+
+    public void setDlg_clientes(JDialog dlg_clientes) {
+        this.dlg_clientes = dlg_clientes;
+    }
+
+    public JPanel getJp_clientes() {
+        return jp_clientes;
+    }
+
+    public void setJp_clientes(JPanel jp_clientes) {
+        this.jp_clientes = jp_clientes;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Actualizar;
-    private javax.swing.JButton btn_Cancelar;
+    private javax.swing.JButton btn_Actualizar_diag;
+    private javax.swing.JButton btn_Cancelar_diag;
     private javax.swing.JButton btn_Clientes;
     private javax.swing.JButton btn_Editar;
     private javax.swing.JButton btn_Eliminar;
-    private javax.swing.JButton btn_Guardar;
+    private javax.swing.JButton btn_Guardar_diag;
     private javax.swing.JButton btn_Mesas;
     private javax.swing.JButton btn_Nuevo;
     private javax.swing.JButton btn_Producto;
     private javax.swing.JButton btn_Reporte;
     private javax.swing.JButton btn_configuracion;
     private javax.swing.JButton btn_factura;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog dlg_clientes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jp_clientes;
     private javax.swing.JPanel jp_dialogClient;

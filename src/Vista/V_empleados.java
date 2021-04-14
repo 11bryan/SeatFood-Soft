@@ -9,9 +9,12 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -130,6 +133,70 @@ public class V_empleados extends javax.swing.JFrame {
         this.tb_Empleados = tb_Empleados;
     }
 
+    public JButton getBnt_Actualizar_regis() {
+        return bnt_Actualizar_regis;
+    }
+
+    public void setBnt_Actualizar_regis(JButton bnt_Actualizar_regis) {
+        this.bnt_Actualizar_regis = bnt_Actualizar_regis;
+    }
+
+    public JButton getBtn_Cancelar() {
+        return btn_Cancelar;
+    }
+
+    public void setBtn_Cancelar(JButton btn_Cancelar) {
+        this.btn_Cancelar = btn_Cancelar;
+    }
+
+    public JButton getBtn_Guardar() {
+        return btn_Guardar;
+    }
+
+    public void setBtn_Guardar(JButton btn_Guardar) {
+        this.btn_Guardar = btn_Guardar;
+    }
+
+    public JComboBox<String> getCb_rolemp() {
+        return cb_rolemp;
+    }
+
+    public void setCb_rolemp(JComboBox<String> cb_rolemp) {
+        this.cb_rolemp = cb_rolemp;
+    }
+
+    public JDialog getDlg_Register() {
+        return dlg_Register;
+    }
+
+    public void setDlg_Register(JDialog dlg_Register) {
+        this.dlg_Register = dlg_Register;
+    }
+
+    public JTextField getTxt_apellidosemp() {
+        return txt_apellidosemp;
+    }
+
+    public void setTxt_apellidosemp(JTextField txt_apellidosemp) {
+        this.txt_apellidosemp = txt_apellidosemp;
+    }
+
+    public JTextField getTxt_iduser() {
+        return txt_iduser;
+    }
+
+    public void setTxt_iduser(JTextField txt_iduser) {
+        this.txt_iduser = txt_iduser;
+    }
+
+    public JTextField getTxt_nombreemp() {
+        return txt_nombreemp;
+    }
+
+    public void setTxt_nombreemp(JTextField txt_nombreemp) {
+        this.txt_nombreemp = txt_nombreemp;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,6 +206,15 @@ public class V_empleados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dlg_Register = new javax.swing.JDialog();
+        jp_register = new DialogRegistroEmp();
+        txt_iduser = new javax.swing.JTextField();
+        txt_nombreemp = new javax.swing.JTextField();
+        txt_apellidosemp = new javax.swing.JTextField();
+        cb_rolemp = new javax.swing.JComboBox<>();
+        btn_Guardar = new javax.swing.JButton();
+        btn_Cancelar = new javax.swing.JButton();
+        bnt_Actualizar_regis = new javax.swing.JButton();
         jp_productos = new FondoProductos();
         btn_Mesas = new javax.swing.JButton();
         btn_Productos = new javax.swing.JButton();
@@ -152,6 +228,73 @@ public class V_empleados extends javax.swing.JFrame {
         btn_Eliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Empleados = new javax.swing.JTable();
+
+        cb_rolemp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar un rol", "Mesero", "Cocinero", "Cajero" }));
+
+        btn_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Guardar.png"))); // NOI18N
+        btn_Guardar.setBorderPainted(false);
+        btn_Guardar.setContentAreaFilled(false);
+
+        btn_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cancelar.png"))); // NOI18N
+        btn_Cancelar.setBorderPainted(false);
+        btn_Cancelar.setContentAreaFilled(false);
+
+        bnt_Actualizar_regis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Actualizar.png"))); // NOI18N
+        bnt_Actualizar_regis.setBorderPainted(false);
+        bnt_Actualizar_regis.setContentAreaFilled(false);
+
+        javax.swing.GroupLayout jp_registerLayout = new javax.swing.GroupLayout(jp_register);
+        jp_register.setLayout(jp_registerLayout);
+        jp_registerLayout.setHorizontalGroup(
+            jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_registerLayout.createSequentialGroup()
+                .addGroup(jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_registerLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_iduser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nombreemp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_apellidosemp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_rolemp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jp_registerLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(bnt_Actualizar_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)))
+                .addContainerGap())
+        );
+        jp_registerLayout.setVerticalGroup(
+            jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_registerLayout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(txt_iduser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(txt_nombreemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(txt_apellidosemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cb_rolemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGroup(jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bnt_Actualizar_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
+
+        javax.swing.GroupLayout dlg_RegisterLayout = new javax.swing.GroupLayout(dlg_Register.getContentPane());
+        dlg_Register.getContentPane().setLayout(dlg_RegisterLayout);
+        dlg_RegisterLayout.setHorizontalGroup(
+            dlg_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dlg_RegisterLayout.setVerticalGroup(
+            dlg_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -317,19 +460,28 @@ public class V_empleados extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bnt_Actualizar_regis;
     private javax.swing.JButton btn_Actualizar;
+    private javax.swing.JButton btn_Cancelar;
     private javax.swing.JButton btn_Clientes;
     private javax.swing.JButton btn_Configuracion;
     private javax.swing.JButton btn_Editar;
     private javax.swing.JButton btn_Eliminar;
     private javax.swing.JButton btn_Facturas;
+    private javax.swing.JButton btn_Guardar;
     private javax.swing.JButton btn_Mesas;
     private javax.swing.JButton btn_Nuevo;
     private javax.swing.JButton btn_Productos;
     private javax.swing.JButton btn_Reporte;
+    private javax.swing.JComboBox<String> cb_rolemp;
+    private javax.swing.JDialog dlg_Register;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jp_productos;
+    private javax.swing.JPanel jp_register;
     private javax.swing.JTable tb_Empleados;
+    private javax.swing.JTextField txt_apellidosemp;
+    private javax.swing.JTextField txt_iduser;
+    private javax.swing.JTextField txt_nombreemp;
     // End of variables declaration//GEN-END:variables
 
     class FondoProductos extends JPanel{
@@ -337,6 +489,18 @@ public class V_empleados extends javax.swing.JFrame {
         
         public void paint(Graphics g){
             imagen=new ImageIcon(getClass().getResource("/Imagenes/Fondo_Empleados.png")).getImage();
+            
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            
+            super.paint(g);
+        }
+    }
+    class DialogRegistroEmp extends JPanel{
+        private Image imagen;
+        
+        public void paint(Graphics g){
+            imagen=new ImageIcon(getClass().getResource("/Imagenes/dialog_emp.png")).getImage();
             
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
