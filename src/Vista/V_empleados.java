@@ -141,6 +141,7 @@ public class V_empleados extends javax.swing.JFrame {
         this.bnt_Actualizar_regis = bnt_Actualizar_regis;
     }
 
+
     public JButton getBtn_Cancelar() {
         return btn_Cancelar;
     }
