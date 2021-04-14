@@ -5,9 +5,8 @@
  */
 package control;
 
-
-import Vista.V_loggins;
-import Vista.V_mesas;
+//import vista.V_loggins;
+//import vista.V_mesas;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,19 +14,19 @@ import javax.swing.JOptionPane;
  * @author USER
  */
 public class ControlLoggin {
-    private V_loggins vloggin;
+   // private V_loggins vlo;
     
    public void iniciocontrol(){
-    vloggin.getBtn_Iniciar().addActionListener(l -> inicioregistro());
+   // vlo.getBtn_Iniciar().addActionListener(l -> inicioregistro());
    } 
    public void inicioregistro(){
-      boolean datos = false;
-        if ((datos==true)||(("holalaola".equals(vloggin.getTxtNombre().getText())) && ("12345".equals(String.valueOf(vloggin.getTxtContrasena().getText()))))) {
-           
-           V_mesas mesa=new V_mesas();
-           mesa.setVisible(true);
-        }else{
+  
+    boolean valor = false;
+       // if ((valor==true)||(("holalaola".equals(vlo.getTxtNombre().getText())) && ("12345".equals(vlo.getTxtContrasena().getText())))) {
+            //V_mesas mesa=new V_mesas();
+            // mesa.setVisible(true);
+      //  }else{
             JOptionPane.showMessageDialog(null,"Usuario o contraseña Incorrectas");
-        }   
-   }
+        }
+  // }
 }
