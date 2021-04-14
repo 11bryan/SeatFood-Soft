@@ -5,7 +5,7 @@ package modelo;
 public class Cliente {
     private String cedula;
     private String nombre;
-    private String apeliido;
+    private String apellido;
     private String direccion;
     private String telefono;
 
@@ -15,7 +15,7 @@ public class Cliente {
     public Cliente(String cedula, String nombre, String apellido, String direccion, String telefono) {
         this.cedula = cedula;
         this.nombre = nombre;
-        this.apeliido = apeliido;
+        this.apellido = apellido;
         this.direccion = direccion;
         this.telefono = telefono;
     }
@@ -37,11 +37,11 @@ public class Cliente {
     }
 
     public String getApellido() {
-        return apeliido;
+        return apellido;
     }
 
     public void setApellido(String apeliido) {
-        this.apeliido = apeliido;
+        this.apellido = apeliido;
     }
 
     public String getDireccion() {
