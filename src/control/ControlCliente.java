@@ -9,6 +9,7 @@ import Vista.V_clientes;
 import Vista.V_mesas;
 import Vista.V_productos;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -41,6 +42,7 @@ public class ControlCliente {
         this.mcliente = mcliente;
         this.vcliente = vcliente;
         vcliente.setVisible(true);
+        vcliente.setLocationRelativeTo(null);
     }
 
     public void iniciacontrol() {
@@ -72,6 +74,8 @@ public class ControlCliente {
     private void mostrardialogo() {
         vcliente.getDlg_clientes().setSize(320, 450);
         vcliente.getDlg_clientes().setTitle("CLIENTE");
+        vcliente.getDlg_clientes().setLocationRelativeTo(null);
+        vcliente.setVisible(false);
         vcliente.getDlg_clientes().setLocationRelativeTo(vcliente);
         vcliente.getTxt_idUser().setText("");
         vcliente.getTxt_Nombre().setText("");
@@ -83,6 +87,7 @@ public class ControlCliente {
     }
 
     private void grabar() {
+        
         String cedula = vcliente.getTxt_idUser().getText();
         String nombre = vcliente.getTxt_Nombre().getText();
         String apellido = vcliente.getTxt_apellido().getText();
@@ -130,6 +135,8 @@ public class ControlCliente {
     }
 
     private void editar() {
+        vcliente.getDlg_clientes().setLocationRelativeTo(null);
+        vcliente.setVisible(false);
         int ind = vcliente.getTb_Clientes().getSelectedRow();
         if (ind != -1) {
             mostrardialogo();

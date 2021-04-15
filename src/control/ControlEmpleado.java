@@ -5,7 +5,10 @@
  */
 package control;
 
+import Vista.V_clientes;
 import Vista.V_empleados;
+import Vista.V_mesas;
+import Vista.V_productos;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 import modelo.ConexionPGA;
 import modelo.empleados;
+import modelo.modelo_cliente;
 import modelo.modelo_empleados;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -38,6 +42,7 @@ public class ControlEmpleado {
         this.mempleado = mempleado;
         this.vempleado = vempleado;
         vempleado.setVisible(true);
+        vempleado.setLocationRelativeTo(null);
     }
 
     public void iniciacontrol() {
@@ -47,10 +52,11 @@ public class ControlEmpleado {
         vempleado.getBtn_Guardar().addActionListener(l -> grabar());
        vempleado.getBtn_Editar().addActionListener(l -> editar());
         vempleado.getBtn_Eliminar().addActionListener(l -> eliminar());
-       // vempleado.getBtn_Mesas().addActionListener(l -> abrirmesas());
-       // vempleado.getBtn_Producto().addActionListener(l -> abrirproducto());
-       // vempleado.getBtn_factura().addActionListener(l -> abrirfactura());
+       vempleado.getBtn_Mesas().addActionListener(l -> abrirmesas());
+       vempleado.getBtn_Productos().addActionListener(l -> abrirproducto());
+       vempleado.getBtn_Facturas().addActionListener(l -> abrirfactura());
         vempleado.getBtn_Cancelar().addActionListener(l -> cancelacion());
+        vempleado.getBtn_Clientes().addActionListener(l -> abrircliente());
         vempleado.getBnt_Actualizar_regis().addActionListener(l -> actualizarpersona());
     }
 
@@ -68,6 +74,9 @@ public class ControlEmpleado {
 
     private void mostrardialogo() {
         vempleado.getBnt_Actualizar_regis().setVisible(false);
+        vempleado.getDlg_Register().setLocationRelativeTo(null);
+        vempleado.setVisible(false);
+        
         vempleado.getDlg_Register().setSize(320, 450);
         vempleado.getDlg_Register().setTitle("EMPLEADO");
         vempleado.getDlg_Register().setLocationRelativeTo(vempleado);
@@ -79,6 +88,7 @@ public class ControlEmpleado {
 
     }
     private void grabar() {
+         
         String cedula =vempleado.getTxt_iduser().getText();
         String nombre = vempleado.getTxt_nombreemp().getText();
         String apellido = vempleado.getTxt_apellidosemp().getText();
@@ -87,7 +97,7 @@ public class ControlEmpleado {
         modelo_empleados empleado = new modelo_empleados(cedula, nombre, apellido,rol);
 
         if (empleado.grabar_empleados()) {
-           // cargalista("");
+           cargalista("");
             vempleado.getDlg_Register().setVisible(false);
             JOptionPane.showMessageDialog(vempleado, "Empleado grabado satisfactoriamente");
         } else {
@@ -96,17 +106,14 @@ public class ControlEmpleado {
 
     }
      private void cargalista(String aguja) {
-        mempleado.actualiza_empleado(aguja);
-        vempleado.getTb_Empleados().setDefaultRenderer(Object.class, new ImagenTabla());
-        vempleado.getTb_Empleados().setRowHeight(100);
-        //DefaultTableCellRenderer renderer = new DefaultTableCellHeaderRenderer();
+       
         DefaultTableModel tblmodelo;
         tblmodelo = (DefaultTableModel) vempleado.getTb_Empleados().getModel();
         tblmodelo.setNumRows(0);
 
         List<empleados> listac = modelo_empleados.lista_empleados(aguja);
-        listac.stream().forEach(p1 -> {
-            int ncols = tblmodelo.getColumnCount();
+        listac.stream().forEach(p1 -> {  
+           int ncols = tblmodelo.getColumnCount();
             Holder<Integer> i = new Holder<>(0);
             String[] empleados = {p1.getId_empleado(), p1.getNombre(), p1.getApellido(), p1.getRol()};
             tblmodelo.addRow(empleados);
@@ -123,6 +130,8 @@ public class ControlEmpleado {
         });
     }
       private void editar() {
+        vempleado.getDlg_Register().setLocationRelativeTo(null);
+        //vempleado.setVisible(false);
         int ind = vempleado.getTb_Empleados().getSelectedRow();
         if (ind != -1) {
             mostrardialogo();
@@ -174,6 +183,32 @@ public class ControlEmpleado {
         } else {
             JOptionPane.showMessageDialog(vempleado, "ERROR");
         }
+    }
+      private void abrirmesas() {
+        V_mesas mesa = new V_mesas();
+        mesa.setVisible(true);
+        mesa.setLocationRelativeTo(null);
+        vempleado.setVisible(false);
+
+    }
+
+    private void abrirproducto() {
+        V_productos producto = new V_productos();
+        producto.setVisible(true);
+        // vmesas.setVisible(false);
+    }
+    private void abrircliente(){
+     V_clientes cliente =new V_clientes();
+     modelo_cliente cli=new modelo_cliente();
+     ControlCliente clientes=new ControlCliente(cli,cliente);
+     clientes.iniciacontrol();
+     cliente.setVisible(true);
+     vempleado.setVisible(false);
+ }
+    private void abrirfactura() {
+        V_mesas mesa = new V_mesas();
+        mesa.getDialog_factura().setVisible(true);
+
     }
       private void cancelacion() {
         vempleado.setVisible(true);

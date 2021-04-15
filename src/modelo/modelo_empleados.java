@@ -63,8 +63,8 @@ public class modelo_empleados extends empleados{
     public boolean actualiza_empleado(String id_empleado){
         String sql;
         sql="UPDATE empleado set nombre='"+getNombre()+"',"
-                + "'"+getApellido()+"',"
-                + "'"+getRol()+"'"
+                + "apellido='"+getApellido()+"',"
+                + "rol ='"+getRol()+"'"
                 + " where id_empleado='"+id_empleado+"'";  
         
         if (con.noQuery(sql)==null) {
@@ -73,7 +73,7 @@ public class modelo_empleados extends empleados{
             return false;
         }
     }
-    
+
     public boolean eliminar_empleado(String id_empleado){
         String sql;
         sql="DELETE from empleado where id_empleado='"+id_empleado+"'";

@@ -356,7 +356,7 @@ public class V_empleados extends javax.swing.JFrame {
 
         tb_Empleados.setBackground(new java.awt.Color(222, 138, 53));
         tb_Empleados.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(222, 138, 53), 2, true));
-        tb_Empleados.setForeground(new java.awt.Color(222, 138, 53));
+        tb_Empleados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tb_Empleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
