@@ -19,6 +19,7 @@ import modelo.ConexionPGA;
 import modelo.empleados;
 import modelo.modelo_cliente;
 import modelo.modelo_empleados;
+import modelo.modelo_producto;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -131,7 +132,7 @@ public class ControlEmpleado {
     }
       private void editar() {
         vempleado.getDlg_Register().setLocationRelativeTo(null);
-        //vempleado.setVisible(false);
+       
         int ind = vempleado.getTb_Empleados().getSelectedRow();
         if (ind != -1) {
             mostrardialogo();
@@ -171,12 +172,13 @@ public class ControlEmpleado {
         }
     }
      private void actualizarpersona() {
+       vempleado.setVisible(true);
        String cedula =vempleado.getTxt_iduser().getText();
         String nombre = vempleado.getTxt_nombreemp().getText();
         String apellido = vempleado.getTxt_apellidosemp().getText();
         String rol = (String)vempleado.getCb_rolemp().getSelectedItem();
         modelo_empleados empleados = new modelo_empleados(cedula, nombre, apellido, rol);
-        if (empleados.actualiza_empleado(apellido)) {
+        if (empleados.actualiza_empleado(cedula)) {
             cargalista("");
             vempleado.getDlg_Register().setVisible(false);
             JOptionPane.showMessageDialog(vempleado, "Empleado editado satisfactoriamente");
@@ -184,6 +186,7 @@ public class ControlEmpleado {
             JOptionPane.showMessageDialog(vempleado, "ERROR");
         }
     }
+     
       private void abrirmesas() {
         V_mesas mesa = new V_mesas();
         mesa.setVisible(true);
@@ -193,9 +196,14 @@ public class ControlEmpleado {
     }
 
     private void abrirproducto() {
+ 
+        vempleado.setVisible(false);
         V_productos producto = new V_productos();
+        modelo_producto prod=new modelo_producto();
         producto.setVisible(true);
-        // vmesas.setVisible(false);
+        ControlProducto control=new ControlProducto(prod,producto);
+        control.iniciacontrol();
+        vempleado.setVisible(false);
     }
     private void abrircliente(){
      V_clientes cliente =new V_clientes();

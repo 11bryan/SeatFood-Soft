@@ -19,6 +19,7 @@ import javax.xml.ws.Holder;
 import modelo.Cliente;
 import modelo.ConexionPGA;
 import modelo.modelo_cliente;
+import modelo.modelo_producto;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -47,7 +48,7 @@ public class ControlCliente {
 
     public void iniciacontrol() {
         vcliente.getBtn_Reporte().addActionListener(l -> imprimereporte());
-        vcliente.getBtn_Actualizar().addActionListener(l -> cargalista(""));
+       vcliente.getBtn_Actualizar().addActionListener(l->cargalista(""));
         vcliente.getBtn_Nuevo().addActionListener(l -> mostrardialogo());
         vcliente.getBtn_Guardar().addActionListener(l -> grabar());
         vcliente.getBtn_Editar().addActionListener(l -> editar());
@@ -56,7 +57,7 @@ public class ControlCliente {
         vcliente.getBtn_Producto().addActionListener(l -> abrirproducto());
         vcliente.getBtn_factura().addActionListener(l -> abrirfactura());
         vcliente.getBtn_Cancelar().addActionListener(l -> cancelacion());
-        vcliente.getBtn_Actualizar_diag().addActionListener(l -> actualizarpersona());
+        vcliente.getBtn_Actualizar_diag().addActionListener(l -> actualizarcliente());
     }
 
     private void imprimereporte() {
@@ -72,6 +73,7 @@ public class ControlCliente {
     }
 
     private void mostrardialogo() {
+        vcliente.getBtn_Actualizar_diag().setVisible(false);
         vcliente.getDlg_clientes().setSize(320, 450);
         vcliente.getDlg_clientes().setTitle("CLIENTE");
         vcliente.getDlg_clientes().setLocationRelativeTo(null);
@@ -106,10 +108,7 @@ public class ControlCliente {
     }
 
     private void cargalista(String aguja) {
-        mcliente.actualiza(aguja);
-        vcliente.getTb_Clientes().setDefaultRenderer(Object.class, new ImagenTabla());
-        vcliente.getTb_Clientes().setRowHeight(100);
-        //DefaultTableCellRenderer renderer = new DefaultTableCellHeaderRenderer();
+     
         DefaultTableModel tblmodelo;
         tblmodelo = (DefaultTableModel) vcliente.getTb_Clientes().getModel();
         tblmodelo.setNumRows(0);
@@ -137,6 +136,7 @@ public class ControlCliente {
     private void editar() {
         vcliente.getDlg_clientes().setLocationRelativeTo(null);
         vcliente.setVisible(false);
+        vcliente.getBtn_Actualizar_diag().setVisible(true);
         int ind = vcliente.getTb_Clientes().getSelectedRow();
         if (ind != -1) {
             mostrardialogo();
@@ -177,13 +177,9 @@ public class ControlCliente {
         }
     }
 
-    private void abrircliente() {
-        V_clientes cliente = new V_clientes();
-        cliente.setVisible(true);
-        // vmesas.setVisible(false);
-    }
+  
 
-    private void actualizarpersona() {
+    private void actualizarcliente() {
         String cedula = vcliente.getTxt_idUser().getText();
         String nombre = vcliente.getTxt_Nombre().getText();
         String apellido = vcliente.getTxt_apellido().getText();
@@ -191,14 +187,18 @@ public class ControlCliente {
         String direccion = vcliente.getTxt_direccion().getText();
         modelo_cliente cliente = new modelo_cliente(cedula, nombre, apellido, direccion, telefono);
         if (cliente.actualiza(cedula)) {
-            //cargalista("");
+            cargalista("");
             vcliente.getDlg_clientes().setVisible(false);
             JOptionPane.showMessageDialog(vcliente, "Cliente editado satisfactoriamente");
         } else {
             JOptionPane.showMessageDialog(vcliente, "ERROR");
         }
     }
-
+  private void abrircliente() {
+        V_clientes cliente = new V_clientes();
+        cliente.setVisible(true);
+        // vmesas.setVisible(false);
+    }
     private void abrirmesas() {
         V_mesas mesa = new V_mesas();
         mesa.setVisible(true);
@@ -207,8 +207,11 @@ public class ControlCliente {
 
     private void abrirproducto() {
         V_productos producto = new V_productos();
+        modelo_producto prod=new modelo_producto();
         producto.setVisible(true);
-        // vmesas.setVisible(false);
+        ControlProducto control=new ControlProducto(prod,producto);
+        control.iniciacontrol();
+        vcliente.setVisible(false);
     }
 
     private void abrirfactura() {
