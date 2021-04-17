@@ -19,6 +19,7 @@ import javax.xml.ws.Holder;
 import modelo.Cliente;
 import modelo.ConexionPGA;
 import modelo.modelo_cliente;
+import modelo.modelo_pedido;
 import modelo.modelo_producto;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -202,6 +203,9 @@ public class ControlCliente {
     private void abrirmesas() {
         V_mesas mesa = new V_mesas();
         mesa.setVisible(true);
+        modelo_pedido ped=new modelo_pedido();
+        ControlPedido pedido = new ControlPedido(ped,mesa);
+        pedido.iniciacontrol();
 
     }
 

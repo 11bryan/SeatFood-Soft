@@ -35,7 +35,7 @@ public class ControlFactura {
         vmesas.getDialog_factura().setLocationRelativeTo(null);
     }
    public void iniciocontrol(){
-       
+    
    }
    
    private void imprimereporte(){

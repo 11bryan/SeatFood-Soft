@@ -65,6 +65,7 @@ public class ControlProducto {
         vproducto.getBtn_Cancelar_d().addActionListener(l -> cancelacion());
         vproducto.getBtn_actualizar_d().addActionListener(l -> actualizarproducto());
         vproducto.getBtn_examinar().addActionListener(l -> cargarImagen());
+        vproducto.getBtn_Clientes().addActionListener(l->abrircliente());
     }
 
     private void imprimereporte() {
@@ -187,7 +188,7 @@ public class ControlProducto {
     private void editar() {
         vproducto.getDialog_producto().setLocationRelativeTo(null);
         vproducto.setVisible(false);
-        vproducto.getBtn_actualizar_d().setVisible(true);
+        
         int ind = vproducto.getTb_Productos().getSelectedRow();
         if (ind != -1) {
             mostrardialogo();
@@ -203,13 +204,14 @@ public class ControlProducto {
             String descripcion = vproducto.getTb_Productos().getValueAt(ind, 4).toString();
             double precio = Double.valueOf(vproducto.getTb_Productos().getValueAt(ind, 5).toString());
             ImageIcon imagen = (ImageIcon) vproducto.getTb_Productos().getValueAt(ind, 6);
+            
             vproducto.getTxt_IdProducto().setText(id);
             vproducto.getTxt_nombre().setText(nombre);
             vproducto.getTxt_tipo().setText(tipo);
-            vproducto.getTxt_cantidad().setText(cantidad);
+            vproducto.getTxt_cantidad().setText(cantidad+"");
             vproducto.getTxt_descripcion().setText(descripcion);
-            vproducto.getTxt_precio().setText(precio);
-            vproducto.getLb_foto().setText(imagen);
+            vproducto.getTxt_precio().setText(precio+"");
+            vproducto.getLb_foto().setText(imagen+"");
             
             vproducto.getTb_Productos().setVisible(true);
 
@@ -260,6 +262,8 @@ public class ControlProducto {
 
     private void abrirmesas() {
         V_mesas mesa = new V_mesas();
+        ControlPedido pedido = new ControlPedido();
+        pedido.iniciacontrol();
         mesa.setVisible(true);
         mesa.setLocationRelativeTo(null);
         vproducto.setVisible(false);
