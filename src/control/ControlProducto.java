@@ -35,7 +35,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
-import sun.swing.table.DefaultTableCellHeaderRenderer;
+//import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 
 
@@ -182,7 +182,7 @@ public class ControlProducto {
 
         vproducto.getTb_Productos().setDefaultRenderer(Object.class, new ImagenTabla());
         vproducto.getTb_Productos().setRowHeight(100);
-        DefaultTableCellRenderer renderer= new DefaultTableCellHeaderRenderer();
+        //DefaultTableCellRenderer renderer= new DefaultTableCellHeaderRenderer();
         DefaultTableModel tblmodelo;
         tblmodelo = (DefaultTableModel) vproducto.getTb_Productos().getModel();
         tblmodelo.setNumRows(0);
@@ -200,7 +200,7 @@ public class ControlProducto {
             vproducto.getTb_Productos().setValueAt(p1.getPrecio(), i.value, 5);
 
             //completar datos
-            Image img = p1.getImagen();
+           /* Image img = p1.getImagen();
             if (img != null) {
                 Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
                 ImageIcon icon = new ImageIcon(newimg);
@@ -210,7 +210,7 @@ public class ControlProducto {
                 vproducto.getTb_Productos().setValueAt(null, i.value, 7);
             }
             i.value++;
-            ;
+            ;*/
 
         });
 

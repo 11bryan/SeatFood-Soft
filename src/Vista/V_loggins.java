@@ -10,6 +10,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -36,14 +37,20 @@ public class V_loggins extends javax.swing.JFrame {
 
         jp_Fondo = new FondoPrincipal();
         btn_Iniciar = new javax.swing.JButton();
-        txtContrasena = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
+        btn_cerrar = new javax.swing.JButton();
+        txt_Contrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        btn_Iniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton Iniciar.png"))); // NOI18N
+        btn_Iniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Iniciar.png"))); // NOI18N
         btn_Iniciar.setBorderPainted(false);
         btn_Iniciar.setContentAreaFilled(false);
+
+        btn_cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cerrar-19.png"))); // NOI18N
+        btn_cerrar.setBorderPainted(false);
+        btn_cerrar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jp_FondoLayout = new javax.swing.GroupLayout(jp_Fondo);
         jp_Fondo.setLayout(jp_FondoLayout);
@@ -52,23 +59,31 @@ public class V_loggins extends javax.swing.JFrame {
             .addGroup(jp_FondoLayout.createSequentialGroup()
                 .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_FondoLayout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jp_FondoLayout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(btn_Iniciar)))
-                .addContainerGap(257, Short.MAX_VALUE))
+                        .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_FondoLayout.createSequentialGroup()
+                                .addGap(256, 256, 256)
+                                .addComponent(btn_Iniciar))
+                            .addGroup(jp_FondoLayout.createSequentialGroup()
+                                .addGap(265, 265, 265)
+                                .addGroup(jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                                    .addComponent(txt_Contrasena))))
+                        .addGap(0, 255, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_FondoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_cerrar)))
+                .addContainerGap())
         );
         jp_FondoLayout.setVerticalGroup(
             jp_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_FondoLayout.createSequentialGroup()
-                .addContainerGap(258, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btn_cerrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
+                .addComponent(txt_Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Iniciar)
                 .addGap(19, 19, 19))
         );
@@ -77,14 +92,11 @@ public class V_loggins extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jp_Fondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jp_Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jp_Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -92,9 +104,10 @@ public class V_loggins extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Iniciar;
+    private javax.swing.JButton btn_cerrar;
     private javax.swing.JPanel jp_Fondo;
-    private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JPasswordField txt_Contrasena;
     // End of variables declaration//GEN-END:variables
  
     class FondoPrincipal extends JPanel{
@@ -118,13 +131,14 @@ public class V_loggins extends javax.swing.JFrame {
         this.btn_Iniciar = btn_Iniciar;
     }
 
-    public JTextField getTxtContrasena() {
-        return txtContrasena;
+    public JPasswordField getTxt_Contrasena() {
+        return txt_Contrasena;
     }
 
-    public void setTxtContrasena(JTextField txtContrasena) {
-        this.txtContrasena = txtContrasena;
+    public void setTxt_Contrasena(JPasswordField txt_Contrasena) {
+        this.txt_Contrasena = txt_Contrasena;
     }
+
 
     public JTextField getTxtNombre() {
         return txtNombre;
@@ -132,6 +146,14 @@ public class V_loggins extends javax.swing.JFrame {
 
     public void setTxtNombre(JTextField txtNombre) {
         this.txtNombre = txtNombre;
+    }
+
+    public JButton getBtn_cerrar() {
+        return btn_cerrar;
+    }
+
+    public void setBtn_cerrar(JButton btn_cerrar) {
+        this.btn_cerrar = btn_cerrar;
     }
 
 }

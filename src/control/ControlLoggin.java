@@ -39,7 +39,7 @@ public class ControlLoggin {
   }
   private void seccion(){
    
-        if ((("1".equals(vlo.getTxtNombre().getText())) && ("1".equals(vlo.getTxtContrasena().getText())))) {
+        if ((("1".equals(vlo.getTxtNombre().getText())) && ("1".equals(vlo.getTxt_Contrasena().getText())))) {
             iniciar();
         }else{
             JOptionPane.showMessageDialog(null,"Usuario o contraseña Incorrectas");
