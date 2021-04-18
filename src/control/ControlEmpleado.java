@@ -9,6 +9,9 @@ import Vista.V_clientes;
 import Vista.V_empleados;
 import Vista.V_mesas;
 import Vista.V_productos;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -82,7 +85,8 @@ public class ControlEmpleado {
         vempleado.getDlg_Register().setSize(320, 450);
         vempleado.getDlg_Register().setTitle("EMPLEADO");
         vempleado.getDlg_Register().setLocationRelativeTo(vempleado);
-        vempleado.getTxt_iduser().setText("");
+        vempleado.getTxt_iduser().setText(id_incrementable()+"");
+         vempleado.getTxt_iduser().setEditable(false);
         vempleado.getTxt_nombreemp().setText("");
         vempleado.getTxt_apellidosemp().setText("");
         vempleado.getCb_rolemp().setSelectedItem("");
@@ -174,7 +178,29 @@ public class ControlEmpleado {
             }
         }
     }
-
+ public int id_incrementable(){
+         int id=1;
+         
+          ConexionPGA con =new ConexionPGA();
+           try {
+               String query="SELECT MAX(id_empleado) from empleado";
+           
+               ResultSet rs=con.query(query);
+            
+       
+            while (rs.next()) {
+                id=rs.getInt(1)+1;  
+            }
+            
+            rs.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(modelo_producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+       
+     
+    }
     private void actualizarpersona() {
         vempleado.setVisible(true);
         String cedula = vempleado.getTxt_iduser().getText();

@@ -10,6 +10,9 @@ import Vista.V_mesas;
 import Vista.V_productos;
 import java.awt.Image;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +35,9 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
+import sun.swing.table.DefaultTableCellHeaderRenderer;
+
+
 
 /**
  *
@@ -79,14 +85,39 @@ public class ControlProducto {
             Logger.getLogger(ControlProducto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+  public int id_incrementable(){
+         int id=1;
+         PreparedStatement ps=null;
+          ResultSet rs=null;
+          ConexionPGA con =new ConexionPGA();
+           try {
+            ps=con.getCon().prepareStatement("SELECT MAX(id_producto) from producto");
+           rs=ps.executeQuery();
+            
+       
+            while (rs.next()) {
+                id=rs.getInt(1)+1;  
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(modelo_producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+       
+     
+    }
     private void mostrardialogo() {
+        
+        
         vproducto.getBtn_actualizar_d().setVisible(false);
         vproducto.getDialog_producto().setSize(320, 450);
         vproducto.getDialog_producto().setTitle("PRODUCTO");
         vproducto.getDialog_producto().setLocationRelativeTo(null);
         vproducto.setVisible(false);
-        vproducto.getTxt_IdProducto().setText("");
+        vproducto.getTxt_IdProducto().setText(id_incrementable()+"");
+        vproducto.getTxt_IdProducto().setEditable(false);
         vproducto.getTxt_nombre().setText("");
         vproducto.getTxt_tipo().setText("");
         vproducto.getTxt_cantidad().setText("");
@@ -98,13 +129,13 @@ public class ControlProducto {
     }
 
     private void grabar() {
-
+      
         String id = vproducto.getTxt_IdProducto().getText();
         String nombre = vproducto.getTxt_nombre().getText();
         String tipo = vproducto.getTxt_tipo().getText();
         int cantidad = Integer.parseInt(vproducto.getTxt_cantidad().getText());
         String descripcion = vproducto.getTxt_descripcion().getText();
-        double precio = Double.valueOf(vproducto.getTxt_precio().getText());
+        double precio = Double.parseDouble(vproducto.getTxt_precio().getText());
         ImageIcon imagen = (ImageIcon) vproducto.getLb_foto().getIcon();
         modelo_producto producto = new modelo_producto();
         producto.setId_producto(id);
@@ -113,6 +144,7 @@ public class ControlProducto {
         producto.setCantidad(cantidad);
         producto.setDescripcion(descripcion);
         producto.setPrecio(precio);
+        
         producto.setImagen(imagen.getImage());
         if (producto.grabar_producto()) {
             cargalista("");
@@ -146,12 +178,11 @@ public class ControlProducto {
         }
     }
 
-    private void cargalista(String aguja) {
+    public void cargalista(String aguja) {
 
         vproducto.getTb_Productos().setDefaultRenderer(Object.class, new ImagenTabla());
         vproducto.getTb_Productos().setRowHeight(100);
-        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();//DefaultTableCellHeaderRenderer();
-
+        DefaultTableCellRenderer renderer= new DefaultTableCellHeaderRenderer();
         DefaultTableModel tblmodelo;
         tblmodelo = (DefaultTableModel) vproducto.getTb_Productos().getModel();
         tblmodelo.setNumRows(0);
@@ -202,7 +233,7 @@ public class ControlProducto {
             String tipo = vproducto.getTb_Productos().getValueAt(ind, 2).toString();
             int cantidad = Integer.parseInt(vproducto.getTb_Productos().getValueAt(ind, 3).toString());
             String descripcion = vproducto.getTb_Productos().getValueAt(ind, 4).toString();
-            double precio = Double.valueOf(vproducto.getTb_Productos().getValueAt(ind, 5).toString());
+            double precio = Double.parseDouble(vproducto.getTb_Productos().getValueAt(ind, 5).toString());
             ImageIcon imagen = (ImageIcon) vproducto.getTb_Productos().getValueAt(ind, 6);
             
             vproducto.getTxt_IdProducto().setText(id);
@@ -259,6 +290,8 @@ public class ControlProducto {
             }
         }
     }
+    
+   
 
     private void abrirmesas() {
         V_mesas mesa = new V_mesas();

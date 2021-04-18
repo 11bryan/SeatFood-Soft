@@ -5,6 +5,7 @@
  */
 package control;
 
+import Vista.V_mesas;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.ConexionPGA;
@@ -23,13 +24,19 @@ import net.sf.jasperreports.view.JasperViewer;
 public class ControlEntrega {
 
     private modelo_entrega mentrega;
+    private V_mesas ventrega;
 
     public ControlEntrega() {
     }
 
-    public ControlEntrega(modelo_entrega mentrega) {
+    public ControlEntrega(modelo_entrega mentrega, V_mesas ventrega) {
         this.mentrega = mentrega;
+        this.ventrega = ventrega;
+        ventrega.getDialog_entrega().setVisible(true);
+        ventrega.getDialog_entrega().setLocationRelativeTo(null);
+        
     }
+
 
     private void imprimereporte() {
         ConexionPGA con = new ConexionPGA();

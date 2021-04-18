@@ -22,8 +22,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txt_buscar" max="32767" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Component id="btn_factura" min="-2" pref="58" max="-2" attributes="0"/>
@@ -31,13 +35,13 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txt_buscar" min="-2" pref="208" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="269" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="269" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="btn_cancelar" min="-2" pref="58" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btn_guardar" min="-2" pref="58" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="cb_Entrega" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -54,7 +58,9 @@
                       <Component id="txt_buscar" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="123" max="-2" attributes="0"/>
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="cb_Entrega" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btn_guardar" min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="btn_cancelar" min="-2" pref="38" max="-2" attributes="0"/>
@@ -139,6 +145,11 @@
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="cb_Entrega">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Entrega a domicilio"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -293,6 +304,62 @@
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="dialog_entrega">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txt_delivery" pref="121" max="32767" attributes="0"/>
+                          <Component id="txt_identrega" max="32767" attributes="0"/>
+                          <Component id="txt_nmesa" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="76" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace pref="67" max="32767" attributes="0"/>
+                      <Component id="txt_identrega" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="txt_nmesa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="txt_delivery" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JTextField" name="txt_identrega">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txt_nmesa">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txt_delivery">
             </Component>
           </SubComponents>
         </Container>

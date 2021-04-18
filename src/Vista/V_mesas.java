@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -44,6 +45,7 @@ public class V_mesas extends javax.swing.JFrame {
         btn_guardar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
         btn_factura = new javax.swing.JButton();
+        cb_Entrega = new javax.swing.JCheckBox();
         dialog_factura = new javax.swing.JDialog();
         jp_factura = new FondoDialogFactura();
         txt_nombre_d = new javax.swing.JTextField();
@@ -53,6 +55,11 @@ public class V_mesas extends javax.swing.JFrame {
         tb_Factura = new javax.swing.JTable();
         btn_Imprimir = new javax.swing.JButton();
         btn_cancelar_d2 = new javax.swing.JButton();
+        dialog_entrega = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        txt_identrega = new javax.swing.JTextField();
+        txt_nmesa = new javax.swing.JTextField();
+        txt_delivery = new javax.swing.JTextField();
         jp_mesas = new FondoMesas();
         btn_mesas = new javax.swing.JButton();
         btn_producto = new javax.swing.JButton();
@@ -101,24 +108,29 @@ public class V_mesas extends javax.swing.JFrame {
         btn_factura.setBorderPainted(false);
         btn_factura.setContentAreaFilled(false);
 
+        cb_Entrega.setText("Entrega a domicilio");
+
         javax.swing.GroupLayout jp_mesas_dialogLayout = new javax.swing.GroupLayout(jp_mesas_dialog);
         jp_mesas_dialog.setLayout(jp_mesas_dialogLayout);
         jp_mesas_dialogLayout.setHorizontalGroup(
             jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_mesas_dialogLayout.createSequentialGroup()
-                .addGroup(jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_mesas_dialogLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jp_mesas_dialogLayout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(txt_buscar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_mesas_dialogLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_mesas_dialogLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                             .addGroup(jp_mesas_dialogLayout.createSequentialGroup()
                                 .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cb_Entrega))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jp_mesas_dialogLayout.setVerticalGroup(
@@ -130,7 +142,9 @@ public class V_mesas extends javax.swing.JFrame {
                 .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(cb_Entrega)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,6 +235,41 @@ public class V_mesas extends javax.swing.JFrame {
         dialog_facturaLayout.setVerticalGroup(
             dialog_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jp_factura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_delivery, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(txt_identrega)
+                    .addComponent(txt_nmesa))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(txt_identrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txt_nmesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txt_delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+        );
+
+        javax.swing.GroupLayout dialog_entregaLayout = new javax.swing.GroupLayout(dialog_entrega.getContentPane());
+        dialog_entrega.getContentPane().setLayout(dialog_entregaLayout);
+        dialog_entregaLayout.setHorizontalGroup(
+            dialog_entregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialog_entregaLayout.setVerticalGroup(
+            dialog_entregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -662,6 +711,38 @@ public class V_mesas extends javax.swing.JFrame {
     public void setTxt_ruc_d(JTextField txt_ruc_d) {
         this.txt_ruc_d = txt_ruc_d;
     }
+
+    public JCheckBox getCb_Entrega() {
+        return cb_Entrega;
+    }
+
+    public void setCb_Entrega(JCheckBox cb_Entrega) {
+        this.cb_Entrega = cb_Entrega;
+    }
+
+    public JDialog getDialog_entrega() {
+        return dialog_entrega;
+    }
+
+    public void setDialog_entrega(JDialog dialog_entrega) {
+        this.dialog_entrega = dialog_entrega;
+    }
+
+    public JTextField getTxt_delivery() {
+        return txt_delivery;
+    }
+
+    public void setTxt_delivery(JTextField txt_delivery) {
+        this.txt_delivery = txt_delivery;
+    }
+
+    public JTextField getTxt_identrega() {
+        return txt_identrega;
+    }
+
+    public void setTxt_identrega(JTextField txt_identrega) {
+        this.txt_identrega = txt_identrega;
+    }
     
    
 
@@ -689,8 +770,11 @@ public class V_mesas extends javax.swing.JFrame {
     private javax.swing.JButton btn_n8;
     private javax.swing.JButton btn_n9;
     private javax.swing.JButton btn_producto;
+    private javax.swing.JCheckBox cb_Entrega;
+    private javax.swing.JDialog dialog_entrega;
     private javax.swing.JDialog dialog_factura;
     private javax.swing.JDialog dialog_mesas;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jp_factura;
@@ -699,7 +783,10 @@ public class V_mesas extends javax.swing.JFrame {
     private javax.swing.JTable tb_Factura;
     private javax.swing.JTable tb_mesas;
     private javax.swing.JTextField txt_buscar;
+    private javax.swing.JTextField txt_delivery;
     private javax.swing.JTextField txt_direccion_d;
+    private javax.swing.JTextField txt_identrega;
+    private javax.swing.JTextField txt_nmesa;
     private javax.swing.JTextField txt_nombre_d;
     private javax.swing.JTextField txt_ruc_d;
     // End of variables declaration//GEN-END:variables

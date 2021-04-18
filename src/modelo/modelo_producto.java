@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class modelo_producto extends producto{
     public modelo_producto(String id_producto, String nombre, String id_tipo, int cantidad, String descripcion, double precio, Image imagen) {
         super(id_producto, nombre, id_tipo, cantidad, descripcion, precio, imagen);
     }
-    
+   
     public boolean grabar_producto(){
         String sql;
         String imagen64=null;
