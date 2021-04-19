@@ -240,61 +240,28 @@ public class V_empleados extends javax.swing.JFrame {
         tb_Empleados = new javax.swing.JTable();
         btn_cerrar = new javax.swing.JButton();
 
+        jp_register.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jp_register.add(txt_iduser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 132, -1));
+        jp_register.add(txt_nombreemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 132, -1));
+        jp_register.add(txt_apellidosemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 132, -1));
+
         cb_rolemp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar un rol", "Mesero", "Cocinero", "Cajero" }));
+        jp_register.add(cb_rolemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 132, -1));
 
         btn_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Guardar.png"))); // NOI18N
         btn_Guardar.setBorderPainted(false);
         btn_Guardar.setContentAreaFilled(false);
+        jp_register.add(btn_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 57, 37));
 
         btn_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cancelar.png"))); // NOI18N
         btn_Cancelar.setBorderPainted(false);
         btn_Cancelar.setContentAreaFilled(false);
+        jp_register.add(btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 57, 37));
 
         bnt_Actualizar_regis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Actualizar.png"))); // NOI18N
         bnt_Actualizar_regis.setBorderPainted(false);
         bnt_Actualizar_regis.setContentAreaFilled(false);
-
-        javax.swing.GroupLayout jp_registerLayout = new javax.swing.GroupLayout(jp_register);
-        jp_register.setLayout(jp_registerLayout);
-        jp_registerLayout.setHorizontalGroup(
-            jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_registerLayout.createSequentialGroup()
-                .addGroup(jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_registerLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_iduser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_nombreemp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_apellidosemp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cb_rolemp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jp_registerLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(bnt_Actualizar_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                        .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)))
-                .addContainerGap())
-        );
-        jp_registerLayout.setVerticalGroup(
-            jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_registerLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(txt_iduser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(txt_nombreemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(txt_apellidosemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cb_rolemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addGroup(jp_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bnt_Actualizar_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
-        );
+        jp_register.add(bnt_Actualizar_regis, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 80, 37));
 
         javax.swing.GroupLayout dlg_RegisterLayout = new javax.swing.GroupLayout(dlg_Register.getContentPane());
         dlg_Register.getContentPane().setLayout(dlg_RegisterLayout);

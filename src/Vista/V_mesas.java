@@ -10,10 +10,14 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -37,34 +41,19 @@ public class V_mesas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dialog_mesas = new FondoDialogMesas();
-        jp_mesas_dialog = new javax.swing.JPanel();
-        txt_buscar = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tb_mesas = new javax.swing.JTable();
-        btn_guardar = new javax.swing.JButton();
-        btn_cancelar = new javax.swing.JButton();
-        btn_factura = new javax.swing.JButton();
-        cb_Entrega = new javax.swing.JCheckBox();
-        btn_clientes = new javax.swing.JButton();
-        txt_idcliente = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tb_idproducto = new javax.swing.JTable();
-        btn_regresar = new javax.swing.JButton();
         dialog_factura = new javax.swing.JDialog();
-        jp_factura_dialog = new FondoDialogFactura();
-        txt_nombre_d = new javax.swing.JTextField();
-        txt_direccion_d = new javax.swing.JTextField();
-        txt_ruc_d = new javax.swing.JTextField();
+        jp_factura_dialog = new javax.swing.JPanel();
+        txt_idfactura = new javax.swing.JTextField();
+        txt_cedulafactura = new javax.swing.JTextField();
+        txt_fecha = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_Factura = new javax.swing.JTable();
         btn_Imprimir = new javax.swing.JButton();
         btn_cancelar_d2 = new javax.swing.JButton();
-        dialog_entrega = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
-        txt_identrega = new javax.swing.JTextField();
-        txt_nmesa = new javax.swing.JTextField();
-        txt_delivery = new javax.swing.JTextField();
+        btn_guardarfactura = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jp_mesas = new FondoMesas();
         btn_mesas = new javax.swing.JButton();
         btn_producto = new javax.swing.JButton();
@@ -77,157 +66,60 @@ public class V_mesas extends javax.swing.JFrame {
         btn_n4 = new javax.swing.JButton();
         btn_n5 = new javax.swing.JButton();
         btn_n6 = new javax.swing.JButton();
-        btn_n7 = new javax.swing.JButton();
-        btn_n8 = new javax.swing.JButton();
-        btn_n9 = new javax.swing.JButton();
-        btn_n10 = new javax.swing.JButton();
-        btn_n11 = new javax.swing.JButton();
-        btn_n12 = new javax.swing.JButton();
         btn_Reporte = new javax.swing.JButton();
         btn_cerrar = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tb_empleados = new javax.swing.JTable();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tb_clientes = new javax.swing.JTable();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tb_pedido = new javax.swing.JTable();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tb_productos = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txt_empledo = new javax.swing.JTextField();
+        txt_consumidor = new javax.swing.JTextField();
+        btn_factura = new javax.swing.JToggleButton();
+        btn_generar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txt_idpedido = new javax.swing.JTextField();
 
-        tb_mesas.setBackground(new java.awt.Color(222, 138, 53));
-        tb_mesas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tb_mesas.setForeground(new java.awt.Color(222, 138, 53));
-        tb_mesas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Nombre", "Precio"
-            }
-        ));
-        jScrollPane1.setViewportView(tb_mesas);
-        if (tb_mesas.getColumnModel().getColumnCount() > 0) {
-            tb_mesas.getColumnModel().getColumn(1).setHeaderValue("Precio");
-        }
+        dialog_factura.setUndecorated(true);
+        dialog_factura.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Guardar.png"))); // NOI18N
-        btn_guardar.setBorderPainted(false);
-        btn_guardar.setContentAreaFilled(false);
-
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cancelar.png"))); // NOI18N
-        btn_cancelar.setBorderPainted(false);
-        btn_cancelar.setContentAreaFilled(false);
-
-        btn_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_factura-13.png"))); // NOI18N
-        btn_factura.setBorderPainted(false);
-        btn_factura.setContentAreaFilled(false);
-
-        cb_Entrega.setText("Entrega a domicilio");
-
-        btn_clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_cliente.png"))); // NOI18N
-        btn_clientes.setBorderPainted(false);
-        btn_clientes.setContentAreaFilled(false);
-        btn_clientes.addActionListener(new java.awt.event.ActionListener() {
+        txt_idfactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_clientesActionPerformed(evt);
+                txt_idfacturaActionPerformed(evt);
             }
         });
 
-        tb_idproducto.setBackground(new java.awt.Color(222, 138, 53));
-        tb_idproducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tb_idproducto.setForeground(new java.awt.Color(222, 138, 53));
-        tb_idproducto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
-            },
-            new String [] {
-                "Id Producto"
-            }
-        ));
-        jScrollPane3.setViewportView(tb_idproducto);
-
-        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_regresar-19.png"))); // NOI18N
-        btn_regresar.setBorderPainted(false);
-        btn_regresar.setContentAreaFilled(false);
-
-        javax.swing.GroupLayout jp_mesas_dialogLayout = new javax.swing.GroupLayout(jp_mesas_dialog);
-        jp_mesas_dialog.setLayout(jp_mesas_dialogLayout);
-        jp_mesas_dialogLayout.setHorizontalGroup(
-            jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_mesas_dialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cb_Entrega)
-                    .addGroup(jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txt_buscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jp_mesas_dialogLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addComponent(btn_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_idcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 89, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_mesas_dialogLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-        jp_mesas_dialogLayout.setVerticalGroup(
-            jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_mesas_dialogLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btn_clientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(txt_idcliente, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addGap(15, 15, 15)
-                .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cb_Entrega)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_mesas_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_regresar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout dialog_mesasLayout = new javax.swing.GroupLayout(dialog_mesas.getContentPane());
-        dialog_mesas.getContentPane().setLayout(dialog_mesasLayout);
-        dialog_mesasLayout.setHorizontalGroup(
-            dialog_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialog_mesasLayout.createSequentialGroup()
-                .addComponent(jp_mesas_dialog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        dialog_mesasLayout.setVerticalGroup(
-            dialog_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_mesas_dialog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
         tb_Factura.setBackground(new java.awt.Color(222, 138, 53));
-        tb_Factura.setForeground(new java.awt.Color(222, 138, 53));
+        tb_Factura.setForeground(new java.awt.Color(0, 0, 0));
         tb_Factura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Cantidad", "Descripcion", "P.Unit", "P.Total"
+                "Cantidad", "Producto", "P.Unit", "P.Total"
             }
         ));
         jScrollPane2.setViewportView(tb_Factura);
@@ -240,272 +132,327 @@ public class V_mesas extends javax.swing.JFrame {
         btn_cancelar_d2.setBorderPainted(false);
         btn_cancelar_d2.setContentAreaFilled(false);
 
+        btn_guardarfactura.setForeground(new java.awt.Color(255, 255, 255));
+        btn_guardarfactura.setText("Guardar");
+        btn_guardarfactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarfacturaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("N` factura");
+
+        jLabel8.setText("cliente");
+
+        jLabel9.setText("fecha");
+
         javax.swing.GroupLayout jp_factura_dialogLayout = new javax.swing.GroupLayout(jp_factura_dialog);
         jp_factura_dialog.setLayout(jp_factura_dialogLayout);
         jp_factura_dialogLayout.setHorizontalGroup(
             jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_factura_dialogLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addGap(38, 38, 38)
+                .addGroup(jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_cedulafactura, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_idfactura))
+                .addGap(133, 133, 133))
+            .addGroup(jp_factura_dialogLayout.createSequentialGroup()
                 .addGroup(jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_factura_dialogLayout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addGroup(jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_ruc_d, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_direccion_d, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_nombre_d, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_factura_dialogLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_factura_dialogLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_cancelar_d2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_Imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                        .addGap(51, 51, 51)
+                        .addComponent(btn_cancelar_d2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(btn_Imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(btn_guardarfactura)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_factura_dialogLayout.setVerticalGroup(
             jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_factura_dialogLayout.createSequentialGroup()
                 .addGap(104, 104, 104)
-                .addComponent(txt_nombre_d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_idfactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_direccion_d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_cedulafactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_ruc_d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addGroup(jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jp_factura_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_cancelar_d2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                    .addComponent(btn_guardarfactura)
+                    .addComponent(btn_cancelar_d2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
-        javax.swing.GroupLayout dialog_facturaLayout = new javax.swing.GroupLayout(dialog_factura.getContentPane());
-        dialog_factura.getContentPane().setLayout(dialog_facturaLayout);
-        dialog_facturaLayout.setHorizontalGroup(
-            dialog_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_factura_dialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        dialog_facturaLayout.setVerticalGroup(
-            dialog_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_factura_dialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_delivery, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addComponent(txt_identrega)
-                    .addComponent(txt_nmesa))
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
-                .addComponent(txt_identrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_nmesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_delivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
-
-        javax.swing.GroupLayout dialog_entregaLayout = new javax.swing.GroupLayout(dialog_entrega.getContentPane());
-        dialog_entrega.getContentPane().setLayout(dialog_entregaLayout);
-        dialog_entregaLayout.setHorizontalGroup(
-            dialog_entregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        dialog_entregaLayout.setVerticalGroup(
-            dialog_entregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        dialog_factura.getContentPane().add(jp_factura_dialog, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jp_mesas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_mesas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_mesas.png"))); // NOI18N
         btn_mesas.setBorderPainted(false);
         btn_mesas.setContentAreaFilled(false);
+        jp_mesas.add(btn_mesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 68, -1));
 
         btn_producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Productos.png"))); // NOI18N
         btn_producto.setBorderPainted(false);
         btn_producto.setContentAreaFilled(false);
+        jp_mesas.add(btn_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 56, 74));
 
         btn_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Clientes.png"))); // NOI18N
         btn_cliente.setBorderPainted(false);
         btn_cliente.setContentAreaFilled(false);
+        jp_mesas.add(btn_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 68, 68));
 
         btn_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Proveedores.png"))); // NOI18N
         btn_Factura.setBorderPainted(false);
         btn_Factura.setContentAreaFilled(false);
+        jp_mesas.add(btn_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 69, 68));
 
         btn_configuracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Configuracion.png"))); // NOI18N
         btn_configuracion.setBorderPainted(false);
         btn_configuracion.setContentAreaFilled(false);
+        jp_mesas.add(btn_configuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 69, 68));
 
         btn_n1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_1.png"))); // NOI18N
         btn_n1.setBorderPainted(false);
         btn_n1.setContentAreaFilled(false);
+        jp_mesas.add(btn_n1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 118, 91));
 
         btn_n2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_2.png"))); // NOI18N
         btn_n2.setBorderPainted(false);
         btn_n2.setContentAreaFilled(false);
+        jp_mesas.add(btn_n2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 118, 91));
 
         btn_n3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_3.png"))); // NOI18N
         btn_n3.setBorderPainted(false);
         btn_n3.setContentAreaFilled(false);
+        jp_mesas.add(btn_n3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 118, 91));
 
         btn_n4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_4.png"))); // NOI18N
         btn_n4.setBorderPainted(false);
         btn_n4.setContentAreaFilled(false);
+        jp_mesas.add(btn_n4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, 118, 91));
 
         btn_n5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_5.png"))); // NOI18N
         btn_n5.setBorderPainted(false);
         btn_n5.setContentAreaFilled(false);
+        jp_mesas.add(btn_n5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 118, 91));
 
         btn_n6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_6.png"))); // NOI18N
         btn_n6.setBorderPainted(false);
         btn_n6.setContentAreaFilled(false);
-
-        btn_n7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_7.png"))); // NOI18N
-        btn_n7.setBorderPainted(false);
-        btn_n7.setContentAreaFilled(false);
-
-        btn_n8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_8.png"))); // NOI18N
-        btn_n8.setBorderPainted(false);
-        btn_n8.setContentAreaFilled(false);
-
-        btn_n9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_9.png"))); // NOI18N
-        btn_n9.setBorderPainted(false);
-        btn_n9.setContentAreaFilled(false);
-
-        btn_n10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_10.png"))); // NOI18N
-        btn_n10.setBorderPainted(false);
-        btn_n10.setContentAreaFilled(false);
-
-        btn_n11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_11.png"))); // NOI18N
-        btn_n11.setBorderPainted(false);
-        btn_n11.setContentAreaFilled(false);
-
-        btn_n12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/numero_12.png"))); // NOI18N
-        btn_n12.setBorderPainted(false);
-        btn_n12.setContentAreaFilled(false);
+        jp_mesas.add(btn_n6, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 180, 118, 91));
 
         btn_Reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Reporte.png"))); // NOI18N
         btn_Reporte.setBorderPainted(false);
         btn_Reporte.setContentAreaFilled(false);
+        jp_mesas.add(btn_Reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, 78, 52));
 
         btn_cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btn_Cerrar-19.png"))); // NOI18N
         btn_cerrar.setBorderPainted(false);
         btn_cerrar.setContentAreaFilled(false);
+        jp_mesas.add(btn_cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 31, 29));
 
-        javax.swing.GroupLayout jp_mesasLayout = new javax.swing.GroupLayout(jp_mesas);
-        jp_mesas.setLayout(jp_mesasLayout);
-        jp_mesasLayout.setHorizontalGroup(
-            jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_mesasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_mesasLayout.createSequentialGroup()
-                        .addComponent(btn_n1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_n2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_n3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_n4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_n5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_n6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_mesasLayout.createSequentialGroup()
-                        .addComponent(btn_n7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_n8, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_n9, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_n10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_n11, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_n12, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(jp_mesasLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(btn_mesas, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btn_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(btn_Factura, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jp_mesasLayout.setVerticalGroup(
-            jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_mesasLayout.createSequentialGroup()
-                .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_mesasLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btn_Factura, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_mesas)
-                        .addComponent(btn_configuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_mesasLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
-                .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_n6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_mesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_n11, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n7, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n9, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n10, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_n12, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58))
-        );
+        tb_empleados.setBackground(new java.awt.Color(222, 138, 53));
+        tb_empleados.setForeground(new java.awt.Color(0, 0, 0));
+        tb_empleados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "id empleado", "Nombre", "Apellido"
+            }
+        ));
+        jScrollPane8.setViewportView(tb_empleados);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_mesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_mesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jp_mesas.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 562, 337, 105));
+
+        tb_clientes.setBackground(new java.awt.Color(222, 138, 53));
+        tb_clientes.setForeground(new java.awt.Color(0, 0, 0));
+        tb_clientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Cedula", "Nombre", "Apellido"
+            }
+        ));
+        tb_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_clientesMouseClicked(evt);
+            }
+        });
+        jScrollPane9.setViewportView(tb_clientes);
+
+        jp_mesas.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 403, 345, 105));
+
+        tb_pedido.setBackground(new java.awt.Color(222, 138, 53));
+        tb_pedido.setForeground(new java.awt.Color(0, 0, 0));
+        tb_pedido.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Codigo producto", "Nombre", "precio"
+            }
+        ));
+        jScrollPane10.setViewportView(tb_pedido);
+
+        jp_mesas.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, 325, 267));
+
+        tb_productos.setBackground(new java.awt.Color(222, 138, 53));
+        tb_productos.setForeground(new java.awt.Color(0, 0, 0));
+        tb_productos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "id producto", "Nombre", "Apellido"
+            }
+        ));
+        jScrollPane11.setViewportView(tb_productos);
+
+        jp_mesas.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 716, 337, 105));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(222, 138, 53));
+        jLabel3.setText("Cliente");
+        jp_mesas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(222, 138, 53));
+        jLabel4.setText("Empleado");
+        jp_mesas.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(222, 138, 53));
+        jLabel5.setText("Producto");
+        jp_mesas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 680, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(222, 138, 53));
+        jLabel6.setText("Cosumidor");
+        jp_mesas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(222, 138, 53));
+        jLabel7.setText("Empleado");
+        jp_mesas.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, -1, -1));
+        jp_mesas.add(txt_empledo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, 112, -1));
+
+        txt_consumidor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_consumidorActionPerformed(evt);
+            }
+        });
+        jp_mesas.add(txt_consumidor, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, 112, -1));
+
+        btn_factura.setBackground(new java.awt.Color(222, 138, 53));
+        btn_factura.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btn_factura.setForeground(new java.awt.Color(255, 255, 255));
+        btn_factura.setText("Factura");
+        jp_mesas.add(btn_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 580, -1, -1));
+
+        btn_generar.setBackground(new java.awt.Color(222, 138, 53));
+        btn_generar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btn_generar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_generar.setText("Generar");
+        jp_mesas.add(btn_generar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 520, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(222, 138, 53));
+        jLabel1.setText("Codigo pedido");
+        jp_mesas.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
+        jp_mesas.add(txt_idpedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 110, -1));
+
+        getContentPane().add(jp_mesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
+    private void txt_consumidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_consumidorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_clientesActionPerformed
+    }//GEN-LAST:event_txt_consumidorActionPerformed
+
+    private void tb_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_clientesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tb_clientesMouseClicked
+
+    private void btn_guardarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarfacturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_guardarfacturaActionPerformed
+
+    private void txt_idfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idfacturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idfacturaActionPerformed
+
+    public JTextField getTxt_cedulafactura() {
+        return txt_cedulafactura;
+    }
+
+    public void setTxt_cedulafactura(JTextField txt_cedulafactura) {
+        this.txt_cedulafactura = txt_cedulafactura;
+    }
+
+    public JTextField getTxt_fecha() {
+        return txt_fecha;
+    }
+
+    public void setTxt_fecha(JTextField txt_fecha) {
+        this.txt_fecha = txt_fecha;
+    }
+
+    public JTextField getTxt_idfactura() {
+        return txt_idfactura;
+    }
+
+    public void setTxt_idfactura(JTextField txt_idfactura) {
+        this.txt_idfactura = txt_idfactura;
+    }
 
     public JButton getBtn_Factura() {
         return btn_Factura;
@@ -555,29 +502,7 @@ public class V_mesas extends javax.swing.JFrame {
         this.btn_n1 = btn_n1;
     }
 
-    public JButton getBtn_n10() {
-        return btn_n10;
-    }
-
-    public void setBtn_n10(JButton btn_n10) {
-        this.btn_n10 = btn_n10;
-    }
-
-    public JButton getBtn_n11() {
-        return btn_n11;
-    }
-
-    public void setBtn_n11(JButton btn_n11) {
-        this.btn_n11 = btn_n11;
-    }
-
-    public JButton getBtn_n12() {
-        return btn_n12;
-    }
-
-    public void setBtn_n12(JButton btn_n12) {
-        this.btn_n12 = btn_n12;
-    }
+    
 
     public JButton getBtn_n2() {
         return btn_n2;
@@ -619,30 +544,7 @@ public class V_mesas extends javax.swing.JFrame {
         this.btn_n6 = btn_n6;
     }
 
-    public JButton getBtn_n7() {
-        return btn_n7;
-    }
-
-    public void setBtn_n7(JButton btn_n7) {
-        this.btn_n7 = btn_n7;
-    }
-
-    public JButton getBtn_n8() {
-        return btn_n8;
-    }
-
-    public void setBtn_n8(JButton btn_n8) {
-        this.btn_n8 = btn_n8;
-    }
-
-    public JButton getBtn_n9() {
-        return btn_n9;
-    }
-
-    public void setBtn_n9(JButton btn_n9) {
-        this.btn_n9 = btn_n9;
-    }
-
+    
     public JButton getBtn_producto() {
         return btn_producto;
     }
@@ -659,54 +561,7 @@ public class V_mesas extends javax.swing.JFrame {
         this.jp_mesas = jp_mesas;
     }
 
-    public JButton getBtn_cancelar() {
-        return btn_cancelar;
-    }
-
-    public void setBtn_cancelar(JButton btn_cancelar) {
-        this.btn_cancelar = btn_cancelar;
-    }
-
-    public JButton getBtn_factura() {
-        return btn_factura;
-    }
-
-    public void setBtn_factura(JButton btn_factura) {
-        this.btn_factura = btn_factura;
-    }
-
-    public JButton getBtn_guardar() {
-        return btn_guardar;
-    }
-
-    public void setBtn_guardar(JButton btn_guardar) {
-        this.btn_guardar = btn_guardar;
-    }
-
-    public JDialog getDialog_mesas() {
-        return dialog_mesas;
-    }
-
-    public void setDialog_mesas(JDialog dialog_mesas) {
-        this.dialog_mesas = dialog_mesas;
-    }
-
-    public JTable getTb_mesas() {
-        return tb_mesas;
-    }
-
-    public void setTb_mesas(JTable tb_mesas) {
-        this.tb_mesas = tb_mesas;
-    }
-
-    public JTextField getTxt_buscar() {
-        return txt_buscar;
-    }
-
-    public void setTxt_buscar(JTextField txt_buscar) {
-        this.txt_buscar = txt_buscar;
-    }
-
+    
     public JButton getBtn_Imprimir() {
         return btn_Imprimir;
     }
@@ -739,13 +594,7 @@ public class V_mesas extends javax.swing.JFrame {
         this.jp_factura_dialog = jp_factura;
     }
 
-    public JPanel getJp_mesas_dialog() {
-        return jp_mesas_dialog;
-    }
-
-    public void setJp_mesas_dialog(JPanel jp_mesas_dialog) {
-        this.jp_mesas_dialog = jp_mesas_dialog;
-    }
+   
 
     public JTable getTb_Factura() {
         return tb_Factura;
@@ -756,60 +605,37 @@ public class V_mesas extends javax.swing.JFrame {
     }
 
     public JTextField getTxt_direccion_d() {
-        return txt_direccion_d;
+        return txt_cedulafactura;
     }
 
     public void setTxt_direccion_d(JTextField txt_direccion_d) {
-        this.txt_direccion_d = txt_direccion_d;
+        this.txt_cedulafactura = txt_direccion_d;
     }
 
     public JTextField getTxt_nombre_d() {
-        return txt_nombre_d;
+        return txt_idfactura;
+    }
+
+    public JButton getBtn_guardarfactura() {
+        return btn_guardarfactura;
+    }
+
+    public void setBtn_guardarfactura(JButton btn_guardarfactura) {
+        this.btn_guardarfactura = btn_guardarfactura;
     }
 
     public void setTxt_nombre_d(JTextField txt_nombre_d) {
-        this.txt_nombre_d = txt_nombre_d;
+        this.txt_idfactura = txt_nombre_d;
     }
 
     public JTextField getTxt_ruc_d() {
-        return txt_ruc_d;
+        return txt_fecha;
     }
 
     public void setTxt_ruc_d(JTextField txt_ruc_d) {
-        this.txt_ruc_d = txt_ruc_d;
+        this.txt_fecha = txt_ruc_d;
     }
-
-    public JCheckBox getCb_Entrega() {
-        return cb_Entrega;
-    }
-
-    public void setCb_Entrega(JCheckBox cb_Entrega) {
-        this.cb_Entrega = cb_Entrega;
-    }
-
-    public JDialog getDialog_entrega() {
-        return dialog_entrega;
-    }
-
-    public void setDialog_entrega(JDialog dialog_entrega) {
-        this.dialog_entrega = dialog_entrega;
-    }
-
-    public JTextField getTxt_delivery() {
-        return txt_delivery;
-    }
-
-    public void setTxt_delivery(JTextField txt_delivery) {
-        this.txt_delivery = txt_delivery;
-    }
-
-    public JTextField getTxt_identrega() {
-        return txt_identrega;
-    }
-
-    public void setTxt_identrega(JTextField txt_identrega) {
-        this.txt_identrega = txt_identrega;
-    }
+   
 
     public JButton getBtn_cerrar() {
         return btn_cerrar;
@@ -819,113 +645,136 @@ public class V_mesas extends javax.swing.JFrame {
         this.btn_cerrar = btn_cerrar;
     }
 
-    public JButton getBtn_clientes() {
-        return btn_clientes;
+   
+
+    public JTable getTb_clientes() {
+        return tb_clientes;
     }
 
-    public void setBtn_clientes(JButton btn_clientes) {
-        this.btn_clientes = btn_clientes;
+    public void setTb_clientes(JTable tb_clientes) {
+        this.tb_clientes = tb_clientes;
     }
 
-    public JButton getBtn_regresar() {
-        return btn_regresar;
+    public JTable getTb_empleados() {
+        return tb_empleados;
     }
 
-    public void setBtn_regresar(JButton btn_regresar) {
-        this.btn_regresar = btn_regresar;
+    public void setTb_empleados(JTable tb_empleados) {
+        this.tb_empleados = tb_empleados;
     }
 
-    public JTable getTb_idproducto() {
-        return tb_idproducto;
+    public JTable getTb_productos() {
+        return tb_productos;
     }
 
-    public void setTb_idproducto(JTable tb_idproducto) {
-        this.tb_idproducto = tb_idproducto;
+    public void setTb_productos(JTable tb_productos) {
+        this.tb_productos = tb_productos;
     }
 
-    public JTextField getTxt_idcliente() {
-        return txt_idcliente;
+    public JTable getTb_pedido() {
+        return tb_pedido;
     }
 
-    public void setTxt_idcliente(JTextField txt_idcliente) {
-        this.txt_idcliente = txt_idcliente;
+    public void setTb_pedido(JTable tb_pedido) {
+        this.tb_pedido = tb_pedido;
     }
 
-    public JTextField getTxt_nmesa() {
-        return txt_nmesa;
+    public JTextField getTxt_consumidor() {
+        return txt_consumidor;
     }
 
-    public void setTxt_nmesa(JTextField txt_nmesa) {
-        this.txt_nmesa = txt_nmesa;
+    public void setTxt_consumidor(JTextField txt_consumidor) {
+        this.txt_consumidor = txt_consumidor;
     }
 
-    public JPanel getjPanel1() {
-        return jPanel1;
+    public JTextField getTxt_empledo() {
+        return txt_empledo;
     }
 
-    public void setjPanel1(JPanel jPanel1) {
-        this.jPanel1 = jPanel1;
+    public void setTxt_empledo(JTextField txt_empledo) {
+        this.txt_empledo = txt_empledo;
     }
 
-    public JPanel getJp_factura_dialog() {
-        return jp_factura_dialog;
+    public JToggleButton getBtn_factura() {
+        return btn_factura;
     }
 
-    public void setJp_factura_dialog(JPanel jp_factura_dialog) {
-        this.jp_factura_dialog = jp_factura_dialog;
+    public void setBtn_factura(JToggleButton btn_factura) {
+        this.btn_factura = btn_factura;
     }
+
+    public JButton getBtn_generar() {
+        return btn_generar;
+    }
+
+    public void setBtn_generar(JButton btn_generar) {
+        this.btn_generar = btn_generar;
+    }
+
+    public JTextField getTxt_idpedido() {
+        return txt_idpedido;
+    }
+
+    public void setTxt_idpedido(JTextField txt_idpedido) {
+        this.txt_idpedido = txt_idpedido;
+    }
+
     
+
+    
+
+    
+
+   
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Factura;
     private javax.swing.JButton btn_Imprimir;
     private javax.swing.JButton btn_Reporte;
-    private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_cancelar_d2;
     private javax.swing.JButton btn_cerrar;
     private javax.swing.JButton btn_cliente;
-    private javax.swing.JButton btn_clientes;
     private javax.swing.JButton btn_configuracion;
-    private javax.swing.JButton btn_factura;
-    private javax.swing.JButton btn_guardar;
+    private javax.swing.JToggleButton btn_factura;
+    private javax.swing.JButton btn_generar;
+    private javax.swing.JButton btn_guardarfactura;
     private javax.swing.JButton btn_mesas;
     private javax.swing.JButton btn_n1;
-    private javax.swing.JButton btn_n10;
-    private javax.swing.JButton btn_n11;
-    private javax.swing.JButton btn_n12;
     private javax.swing.JButton btn_n2;
     private javax.swing.JButton btn_n3;
     private javax.swing.JButton btn_n4;
     private javax.swing.JButton btn_n5;
     private javax.swing.JButton btn_n6;
-    private javax.swing.JButton btn_n7;
-    private javax.swing.JButton btn_n8;
-    private javax.swing.JButton btn_n9;
     private javax.swing.JButton btn_producto;
-    private javax.swing.JButton btn_regresar;
-    private javax.swing.JCheckBox cb_Entrega;
-    private javax.swing.JDialog dialog_entrega;
     private javax.swing.JDialog dialog_factura;
-    private javax.swing.JDialog dialog_mesas;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPanel jp_factura_dialog;
     private javax.swing.JPanel jp_mesas;
-    private javax.swing.JPanel jp_mesas_dialog;
     private javax.swing.JTable tb_Factura;
-    private javax.swing.JTable tb_idproducto;
-    private javax.swing.JTable tb_mesas;
-    private javax.swing.JTextField txt_buscar;
-    private javax.swing.JTextField txt_delivery;
-    private javax.swing.JTextField txt_direccion_d;
-    private javax.swing.JTextField txt_idcliente;
-    private javax.swing.JTextField txt_identrega;
-    private javax.swing.JTextField txt_nmesa;
-    private javax.swing.JTextField txt_nombre_d;
-    private javax.swing.JTextField txt_ruc_d;
+    private javax.swing.JTable tb_clientes;
+    private javax.swing.JTable tb_empleados;
+    private javax.swing.JTable tb_pedido;
+    private javax.swing.JTable tb_productos;
+    private javax.swing.JTextField txt_cedulafactura;
+    private javax.swing.JTextField txt_consumidor;
+    private javax.swing.JTextField txt_empledo;
+    private javax.swing.JTextField txt_fecha;
+    private javax.swing.JTextField txt_idfactura;
+    private javax.swing.JTextField txt_idpedido;
     // End of variables declaration//GEN-END:variables
     
     class FondoMesas extends JPanel{
@@ -945,7 +794,7 @@ public class V_mesas extends javax.swing.JFrame {
         private Image imagen;
 
         private FondoDialogMesas() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
         
         public void paint(Graphics g){
@@ -958,7 +807,7 @@ public class V_mesas extends javax.swing.JFrame {
         }
     }
 
-   class FondoDialogFactura extends JDialog{
+  class FondoDialogFactura extends JDialog{
         private Image imagen;
 
         private FondoDialogFactura() {

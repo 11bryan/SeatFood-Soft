@@ -9,6 +9,7 @@ import Vista.V_productos;
 import control.ControlCliente;
 import control.ControlEmpleado;
 import control.ControlLoggin;
+import control.ControlPedido;
 import modelo.modelo_cliente;
 import modelo.modelo_empleados;
 

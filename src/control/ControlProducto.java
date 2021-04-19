@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
@@ -35,7 +36,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
-//import sun.swing.table.DefaultTableCellHeaderRenderer;
+
 
 
 
@@ -72,6 +73,8 @@ public class ControlProducto {
         vproducto.getBtn_actualizar_d().addActionListener(l -> actualizarproducto());
         vproducto.getBtn_examinar().addActionListener(l -> cargarImagen());
         vproducto.getBtn_Clientes().addActionListener(l->abrircliente());
+        vproducto.getBtn_Cancelar_d().addActionListener(l ->cancelacion());
+        vproducto.getBtn_cerrar().addActionListener(l ->salir());
     }
 
     private void imprimereporte() {
@@ -85,46 +88,23 @@ public class ControlProducto {
             Logger.getLogger(ControlProducto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-  public int id_incrementable(){
-         int id=1;
-         PreparedStatement ps=null;
-          ResultSet rs=null;
-          ConexionPGA con =new ConexionPGA();
-           try {
-            ps=con.getCon().prepareStatement("SELECT MAX(id_producto) from producto");
-           rs=ps.executeQuery();
-            
-       
-            while (rs.next()) {
-                id=rs.getInt(1)+1;  
-            }
-            
-            rs.close();
-            ps.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(modelo_producto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
-       
-     
-    }
+
     private void mostrardialogo() {
         
         
         vproducto.getBtn_actualizar_d().setVisible(false);
-        vproducto.getDialog_producto().setSize(320, 450);
+        vproducto.getBtn_Guardar_d().setVisible(true);
+        vproducto.getDialog_producto().setSize(720, 550);
         vproducto.getDialog_producto().setTitle("PRODUCTO");
         vproducto.getDialog_producto().setLocationRelativeTo(null);
         vproducto.setVisible(false);
-        vproducto.getTxt_IdProducto().setText(id_incrementable()+"");
-        vproducto.getTxt_IdProducto().setEditable(false);
+        vproducto.getTxt_IdProducto().setText("");
         vproducto.getTxt_nombre().setText("");
-        vproducto.getTxt_tipo().setText("");
         vproducto.getTxt_cantidad().setText("");
         vproducto.getTxt_descripcion().setText("");
-        vproducto.getTxt_tipo().setText("");
-
         vproducto.getDialog_producto().setVisible(true);
+        vproducto.getLb_foto().setIcon(null);
+        
 
     }
 
@@ -132,23 +112,26 @@ public class ControlProducto {
       
         String id = vproducto.getTxt_IdProducto().getText();
         String nombre = vproducto.getTxt_nombre().getText();
-        String tipo = vproducto.getTxt_tipo().getText();
+        String tipo =(String) vproducto.getCbb_tipo().getSelectedItem();
         int cantidad = Integer.parseInt(vproducto.getTxt_cantidad().getText());
         String descripcion = vproducto.getTxt_descripcion().getText();
         double precio = Double.parseDouble(vproducto.getTxt_precio().getText());
-        ImageIcon imagen = (ImageIcon) vproducto.getLb_foto().getIcon();
+        
         modelo_producto producto = new modelo_producto();
         producto.setId_producto(id);
         producto.setNombre(nombre);
-        producto.setId_tipo(tipo);
+        producto.setTipo(tipo);
         producto.setCantidad(cantidad);
         producto.setDescripcion(descripcion);
         producto.setPrecio(precio);
         
-        producto.setImagen(imagen.getImage());
+        ImageIcon ic = (ImageIcon) vproducto.getLb_foto().getIcon();
+        producto.setImagen(ic.getImage());
+        
         if (producto.grabar_producto()) {
             cargalista("");
             vproducto.getDialog_producto().setVisible(false);
+            vproducto.setVisible(true);
             JOptionPane.showMessageDialog(vproducto, "Cliente grabado satisfactoriamente");
         } else {
             JOptionPane.showMessageDialog(vproducto, "ERROR");
@@ -159,6 +142,8 @@ public class ControlProducto {
     private void cargarImagen() {
 
         JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PNG", "png");
+        jfc.setFileFilter(filtro);
         jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int estado = jfc.showOpenDialog(null);
         if (estado == JFileChooser.APPROVE_OPTION) {
@@ -179,38 +164,38 @@ public class ControlProducto {
     }
 
     public void cargalista(String aguja) {
-
         vproducto.getTb_Productos().setDefaultRenderer(Object.class, new ImagenTabla());
         vproducto.getTb_Productos().setRowHeight(100);
-        //DefaultTableCellRenderer renderer= new DefaultTableCellHeaderRenderer();
+        //error
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        
         DefaultTableModel tblmodelo;
         tblmodelo = (DefaultTableModel) vproducto.getTb_Productos().getModel();
         tblmodelo.setNumRows(0);
         List<producto> lista = modelo_producto.lista_producto(aguja);
+        
+        int ncols = tblmodelo.getColumnCount();
+        Holder<Integer> i = new Holder<>(0);
         lista.stream().forEach(p1 -> {
-            int ncols = tblmodelo.getColumnCount();
-            Holder<Integer> i = new Holder<>(0);
-            tblmodelo.addRow(new Object[ncols]);
             tblmodelo.addRow(new Object[ncols]);
             vproducto.getTb_Productos().setValueAt(p1.getId_producto(), i.value, 0);
             vproducto.getTb_Productos().setValueAt(p1.getNombre(), i.value, 1);
-            vproducto.getTb_Productos().setValueAt(p1.getId_tipo(), i.value, 2);
+            vproducto.getTb_Productos().setValueAt(p1.getTipo(), i.value, 2);
             vproducto.getTb_Productos().setValueAt(p1.getCantidad(), i.value, 3);
             vproducto.getTb_Productos().setValueAt(p1.getDescripcion(), i.value, 4);
             vproducto.getTb_Productos().setValueAt(p1.getPrecio(), i.value, 5);
-
             //completar datos
-           /* Image img = p1.getImagen();
+            Image img = p1.getImagen();
             if (img != null) {
                 Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
                 ImageIcon icon = new ImageIcon(newimg);
                 renderer.setIcon(icon);
-                vproducto.getTb_Productos().setValueAt(new JLabel(icon), i.value, 7);
+                vproducto.getTb_Productos().setValueAt(new JLabel(icon), i.value, 6);
             } else {
-                vproducto.getTb_Productos().setValueAt(null, i.value, 7);
+                vproducto.getTb_Productos().setValueAt(null, i.value, 6);
             }
             i.value++;
-            ;*/
+            ;
 
         });
 
@@ -218,41 +203,58 @@ public class ControlProducto {
 
     private void editar() {
         vproducto.getDialog_producto().setLocationRelativeTo(null);
-        vproducto.setVisible(false);
         
         int ind = vproducto.getTb_Productos().getSelectedRow();
         if (ind != -1) {
+            vproducto.setVisible(false);
             mostrardialogo();
+            vproducto.getBtn_actualizar_d().setVisible(true);
             vproducto.getBtn_Guardar_d().setVisible(false);
             vproducto.getTxt_IdProducto().setEditable(false);
-            vproducto.getTxt_tipo().setEditable(false);
             vproducto.getTb_Productos().setSize(700, 500);
 
             String id = vproducto.getTb_Productos().getValueAt(ind, 0).toString();
+            System.out.println(id);
             String nombre = vproducto.getTb_Productos().getValueAt(ind, 1).toString();
             String tipo = vproducto.getTb_Productos().getValueAt(ind, 2).toString();
             int cantidad = Integer.parseInt(vproducto.getTb_Productos().getValueAt(ind, 3).toString());
             String descripcion = vproducto.getTb_Productos().getValueAt(ind, 4).toString();
             double precio = Double.parseDouble(vproducto.getTb_Productos().getValueAt(ind, 5).toString());
-            ImageIcon imagen = (ImageIcon) vproducto.getTb_Productos().getValueAt(ind, 6);
             
             vproducto.getTxt_IdProducto().setText(id);
             vproducto.getTxt_nombre().setText(nombre);
-            vproducto.getTxt_tipo().setText(tipo);
+            vproducto.getCbb_tipo().setSelectedItem(tipo);
             vproducto.getTxt_cantidad().setText(cantidad+"");
             vproducto.getTxt_descripcion().setText(descripcion);
             vproducto.getTxt_precio().setText(precio+"");
-            vproducto.getLb_foto().setText(imagen+"");
             
+            JLabel lbl=(JLabel)vproducto.getTb_Productos().getValueAt(ind, 6);
             vproducto.getTb_Productos().setVisible(true);
+            
+            if (lbl!=null) {
+                ImageIcon ic = (ImageIcon) lbl.getIcon();
+                Image image = ic.getImage();
+                Image newimg = image.getScaledInstance(
+                        vproducto.getLb_foto().getWidth(),
+                        vproducto.getLb_foto().getHeight(),
+                        Image.SCALE_DEFAULT);
+                ImageIcon i=new ImageIcon(newimg);
+            vproducto.getLb_foto().setIcon(i);
+            vproducto.getLb_foto().updateUI();
+            }else{
+               vproducto.getLb_foto().setText("sin imagen"); 
+            }
+            
+            
+            
 
         }
     }
 
     private void actualizarproducto() {
-         String id = vproducto.getTxt_IdProducto().getText();
+        String id = vproducto.getTxt_IdProducto().getText();
         String nombre = vproducto.getTxt_nombre().getText();
-        String tipo = vproducto.getTxt_tipo().getText();
+        String tipo =(String) vproducto.getCbb_tipo().getSelectedItem();
         int cantidad = Integer.parseInt(vproducto.getTxt_cantidad().getText());
         String descripcion = vproducto.getTxt_descripcion().getText();
         double precio = Double.valueOf(vproducto.getTxt_precio().getText());
@@ -260,12 +262,13 @@ public class ControlProducto {
         modelo_producto producto = new modelo_producto();
         producto.setId_producto(id);
         producto.setNombre(nombre);
-        producto.setId_tipo(tipo);
+        System.out.println(tipo);
+        producto.setTipo(tipo);
         producto.setCantidad(cantidad);
         producto.setDescripcion(descripcion);
         producto.setPrecio(precio);
         producto.setImagen(imagen.getImage());
-        if (producto.actualiza_producto(id)) {
+        if (producto.actualiza_producto(vproducto.getTxt_IdProducto().getText())) {
             cargalista("");
             vproducto.getDialog_producto().setVisible(false);
             JOptionPane.showMessageDialog(vproducto, "Producto editado satisfactoriamente");
@@ -296,7 +299,7 @@ public class ControlProducto {
     private void abrirmesas() {
         V_mesas mesa = new V_mesas();
         ControlPedido pedido = new ControlPedido();
-        pedido.iniciacontrol();
+        //pedido.iniciacontrol();
         mesa.setVisible(true);
         mesa.setLocationRelativeTo(null);
         vproducto.setVisible(false);
@@ -333,7 +336,12 @@ public class ControlProducto {
     }
 
     private void cancelacion() {
-        vproducto.setVisible(false);
+        vproducto.getDialog_producto().setVisible(false);
+        vproducto.setVisible(true);
 
+    }
+    
+    private void salir(){
+        vproducto.dispose();
     }
 }

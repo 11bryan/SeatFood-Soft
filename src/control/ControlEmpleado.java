@@ -51,10 +51,11 @@ public class ControlEmpleado {
     }
 
     public void iniciacontrol() {
+        vempleado.getBtn_cerrar().addActionListener(l->salir());
         vempleado.getBtn_Reporte().addActionListener(l -> imprimereporte());
         vempleado.getBtn_Actualizar().addActionListener(l -> cargalista(""));
         vempleado.getBtn_Nuevo().addActionListener(l -> mostrardialogo());
-        vempleado.getBtn_Guardar().addActionListener(l -> grabar());
+       vempleado.getBtn_Guardar().addActionListener(l -> grabar());
         vempleado.getBtn_Editar().addActionListener(l -> editar());
         vempleado.getBtn_Eliminar().addActionListener(l -> eliminar());
         vempleado.getBtn_Mesas().addActionListener(l -> abrirmesas());
@@ -81,19 +82,43 @@ public class ControlEmpleado {
         vempleado.getBnt_Actualizar_regis().setVisible(false);
         vempleado.getDlg_Register().setLocationRelativeTo(null);
         vempleado.setVisible(false);
-
-        vempleado.getDlg_Register().setSize(320, 450);
+        vempleado.getDlg_Register().setSize(320, 550);
         vempleado.getDlg_Register().setTitle("EMPLEADO");
         vempleado.getDlg_Register().setLocationRelativeTo(vempleado);
-        vempleado.getTxt_iduser().setText(id_incrementable()+"");
-         vempleado.getTxt_iduser().setEditable(false);
+        vempleado.getTxt_iduser().setText("");
         vempleado.getTxt_nombreemp().setText("");
         vempleado.getTxt_apellidosemp().setText("");
         vempleado.getCb_rolemp().setSelectedItem("");
         vempleado.getDlg_Register().setVisible(true);
 
     }
-
+public int id_incrementable(){
+          int id=1;
+          
+         PreparedStatement ps=null;
+         ResultSet rs=null;
+          ConexionPGA con =new ConexionPGA();
+           try {
+               ps=con.getCon().prepareStatement("SELECT MAX(id_empleado) from empleado");
+               rs=ps.executeQuery();
+            while (rs.next()) {
+                id=rs.getInt(1)+1;
+            }
+            
+        } catch (SQLException ex) {
+               System.out.println("Error"+ex.getMessage());
+               } finally{
+               try{
+                  ps.close();
+                  rs.close();
+               }catch(Exception ex){
+                   
+               }
+           }
+        return id;
+      
+     
+    }
     private void grabar() {
 
         String cedula = vempleado.getTxt_iduser().getText();
@@ -106,13 +131,14 @@ public class ControlEmpleado {
         if (empleado.grabar_empleados()) {
             cargalista("");
             vempleado.getDlg_Register().setVisible(false);
+            vempleado.setVisible(true);
             JOptionPane.showMessageDialog(vempleado, "Empleado grabado satisfactoriamente");
         } else {
             JOptionPane.showMessageDialog(vempleado, "ERROR");
         }
 
     }
-
+  
     private void cargalista(String aguja) {
 
         DefaultTableModel tblmodelo;
@@ -120,11 +146,9 @@ public class ControlEmpleado {
         tblmodelo.setNumRows(0);
 
         List<empleados> listac = modelo_empleados.lista_empleados(aguja);
+        int ncols = tblmodelo.getColumnCount();
+        Holder<Integer> i = new Holder<>(0);
         listac.stream().forEach(p1 -> {
-            int ncols = tblmodelo.getColumnCount();
-            Holder<Integer> i = new Holder<>(0);
-            String[] empleados = {p1.getId_empleado(), p1.getNombre(), p1.getApellido(), p1.getRol()};
-            tblmodelo.addRow(empleados);
             tblmodelo.addRow(new Object[ncols]);
             vempleado.getTb_Empleados().setValueAt(p1.getId_empleado(), i.value, 0);
             vempleado.getTb_Empleados().setValueAt(p1.getNombre(), i.value, 1);
@@ -178,29 +202,7 @@ public class ControlEmpleado {
             }
         }
     }
- public int id_incrementable(){
-         int id=1;
-         
-          ConexionPGA con =new ConexionPGA();
-           try {
-               String query="SELECT MAX(id_empleado) from empleado";
-           
-               ResultSet rs=con.query(query);
-            
-       
-            while (rs.next()) {
-                id=rs.getInt(1)+1;  
-            }
-            
-            rs.close();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(modelo_producto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
-       
-     
-    }
+
     private void actualizarpersona() {
         vempleado.setVisible(true);
         String cedula = vempleado.getTxt_iduser().getText();
@@ -221,7 +223,9 @@ public class ControlEmpleado {
         V_mesas mesa = new V_mesas();
         mesa.setVisible(true);
         modelo_pedido ped=new modelo_pedido();
-        ControlPedido pedido = new ControlPedido(ped,mesa);
+        modelo_empleados em=new modelo_empleados();
+        modelo_cliente cl=new modelo_cliente();
+        ControlPedido pedido = new ControlPedido(ped,mesa,em,cl);
         pedido.iniciacontrol();
         mesa.setLocationRelativeTo(null);
         vempleado.setVisible(false);
@@ -256,5 +260,9 @@ public class ControlEmpleado {
 
     private void cancelacion() {
         vempleado.setVisible(true);
+        vempleado.getDlg_Register().setVisible(false);
     }
+    private void salir(){
+   vempleado.dispose();   
+  }
 }

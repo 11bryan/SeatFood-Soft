@@ -15,16 +15,18 @@ public class modelo_pedido extends pedido{
     public modelo_pedido() {
     }
 
-    public modelo_pedido(String id_pedido, String id_empleado, String id_producto, String id_entrega, String cedula, String p_adicinal) {
-        super(id_pedido, id_empleado, id_producto, id_entrega, cedula, p_adicinal);
+    public modelo_pedido(String id_pedido, String id_empleado, String id_producto, String cedula) {
+        super(id_pedido, id_empleado, id_producto, cedula);
     }
+
+    
     
     public boolean grabarPedido(){
         String sql;
-        sql="INSERT INTO pedido(id_pedido,id_empleado,id_producto,id_entrega,cedula,p_adicinal) ";
+        sql="INSERT INTO pedido(id_pedido,id_empleado,id_producto,cedula) ";
         sql+=" values ('"+getId_pedido()+"','"+getId_empleado()+"',"
-                + "'"+getId_producto()+"','"+getId_entrega()+"',"
-                + "'"+getCedula()+"','"+getP_adicinal()+"')";
+                + "'"+getId_producto()+"',"
+                + "'"+getCedula()+"')";
         
         if (con.noQuery(sql)==null) {
             return true;
@@ -39,8 +41,8 @@ public class modelo_pedido extends pedido{
             String query="select * from pedido where ";
             query="UPPER(id_pedido) LIKE UPPER('%"+aguja+"%') OR ";
             query="UPPER(id_producto) LIKE UPPER('%"+aguja+"%') OR ";
-            query="UPPER(cedula) LIKE UPPER('%"+aguja+"%') OR ";
-            query="UPPER(id_entrega) LIKE UPPER('%"+aguja+"%') OR ";
+            query="UPPER(cedula) LIKE UPPER('%"+aguja+"%') ";
+            
             
             ResultSet rs=con.query(query);
             List<pedido> lista=new ArrayList<>();
@@ -64,9 +66,7 @@ public class modelo_pedido extends pedido{
         String sql;
         sql="UPDATE pedido set id_empleado='"+getId_empleado()+"',"
                 + "id_producto='"+getId_producto()+"',"
-                + "id_entrega'"+getId_entrega()+"',"
-                + "cedula'"+getCedula()+"',"
-                + "p_adicinal'"+getP_adicinal()+"',"
+                + "cedula'"+getCedula()+"' "
                 + " where id_pedido='"+id_pedido+"'";
         
         if (con.noQuery(sql)==null) {

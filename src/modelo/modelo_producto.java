@@ -29,9 +29,11 @@ public class modelo_producto extends producto{
     public modelo_producto() {
     }
 
-    public modelo_producto(String id_producto, String nombre, String id_tipo, int cantidad, String descripcion, double precio, Image imagen) {
-        super(id_producto, nombre, id_tipo, cantidad, descripcion, precio, imagen);
+    public modelo_producto(String id_producto, String nombre, String tipo, int cantidad, String descripcion, double precio, Image imagen) {
+        super(id_producto, nombre, tipo, cantidad, descripcion, precio, imagen);
     }
+
+    
    
     public boolean grabar_producto(){
         String sql;
@@ -47,9 +49,9 @@ public class modelo_producto extends producto{
             Logger.getLogger(modelo_producto.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        sql="INSERT INTO producto (id_producto,nombre,id_tipo,cantidad,descripcion,precio,image) ";
+        sql="INSERT INTO producto (id_producto,nombre,tipo,cantidad,descripcion,precio,imagen) ";
         sql+="values ('"+getId_producto()+"','"+getNombre()+"',"
-                + "'"+getId_tipo()+"','"+getCantidad()+"','"+getDescripcion()+"',"
+                + "'"+getTipo()+"','"+getCantidad()+"','"+getDescripcion()+"',"
                 + "'"+getPrecio()+"','"+imagen64+"')";
         
         if(con.noQuery(sql)==null){
@@ -80,7 +82,7 @@ public class modelo_producto extends producto{
             String query="select * from producto where ";
             query +="UPPER (id_producto) LIKE UPPER('%"+aguja+"%') OR ";
             query +="UPPER (nombre) LIKE UPPER('%"+aguja+"%') OR ";
-            query +="UPPER (id_tipo) LIKE UPPER('%"+aguja+"%') OR ";
+            query +="UPPER (tipo) LIKE UPPER('%"+aguja+"%') OR ";
             query +="UPPER (descripcion) LIKE UPPER('%"+aguja+"%')";
             
             ResultSet rs=con.query(query);
@@ -90,7 +92,7 @@ public class modelo_producto extends producto{
                 producto p=new producto();
                 p.setId_producto(rs.getString("id_producto"));
                 p.setNombre(rs.getString("nombre"));
-                p.setId_tipo(rs.getString("id_tipo"));
+                p.setTipo(rs.getString("tipo"));
                 p.setCantidad(rs.getInt("cantidad"));
                 p.setDescripcion(rs.getString("descripcion"));
                 p.setPrecio(rs.getInt("precio"));
@@ -144,7 +146,7 @@ public class modelo_producto extends producto{
          
          String sql;
          sql="UPDATE producto SET nombre='"+getNombre()+"',"
-                 + "'"+getId_tipo()+"',"
+                 + "'"+getTipo()+"',"
                  + "'"+getCantidad()+"',"
                  + "'"+getDescripcion()+"',"
                  + "'"+getPrecio()+"',"

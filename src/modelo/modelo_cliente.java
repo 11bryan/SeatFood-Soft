@@ -33,7 +33,7 @@ public class modelo_cliente extends Cliente{
     
     //lista 0 busca los cliente por cedula nombre apellido telefono
     
-    public static List<Cliente>lista_cliente(String aguja){
+    public static List<Cliente> lista_cliente(String aguja){
         try {
             String query="select * from cliente where ";
             query+="UPPER(cedula) like UPPER ('%"+aguja+"%') OR ";
@@ -42,7 +42,7 @@ public class modelo_cliente extends Cliente{
             query+="UPPER(telefono) like UPPER ('%"+aguja+"%') ";
             
             ResultSet rs=con.query(query);
-            List<Cliente> lista=new ArrayList<>();
+            List<Cliente> lista=new ArrayList<Cliente>();
             
             while (rs.next()) {                
                 Cliente cliente =new Cliente();
@@ -88,4 +88,8 @@ public class modelo_cliente extends Cliente{
             return false;
         }
     }
+    
+    
+   
+    
 }

@@ -18,6 +18,7 @@ import modelo.modelo_empleados;
  */
 public class ControlLoggin {
     private V_loggins vlo;
+    
 
     public ControlLoggin(V_loggins vlo) {
         this.vlo = vlo;
@@ -27,6 +28,7 @@ public class ControlLoggin {
     
    public void iniciocontrol(){
    vlo.getBtn_Iniciar().addActionListener(l -> seccion());
+   vlo.getBtn_cerrar().addActionListener(l->salir());
    } 
  
   public void iniciar(){
@@ -46,5 +48,8 @@ public class ControlLoggin {
         }
        
    }
+  private void salir(){
+   vlo.dispose();   
+  }
 }
 

@@ -7,7 +7,7 @@ import java.awt.Image;
 public class producto {
     private String id_producto;
     private String nombre;
-    private String id_tipo;
+    private String tipo;
     private int cantidad;
     private String descripcion;
     private double precio;
@@ -15,11 +15,12 @@ public class producto {
 
     public producto() {
     }
+    
 
-    public producto(String id_producto, String nombre, String id_tipo, int cantidad, String descripcion, double precio, Image imagen) {
+    public producto(String id_producto, String nombre, String tipo, int cantidad, String descripcion, double precio, Image imagen) {
         this.id_producto = id_producto;
         this.nombre = nombre;
-        this.id_tipo = id_tipo;
+        this.tipo = tipo;
         this.cantidad = cantidad;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -42,12 +43,12 @@ public class producto {
         this.nombre = nombre;
     }
 
-    public String getId_tipo() {
-        return id_tipo;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setId_tipo(String id_tipo) {
-        this.id_tipo = id_tipo;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public int getCantidad() {
@@ -81,6 +82,7 @@ public class producto {
     public void setImagen(Image imagen) {
         this.imagen = imagen;
     }
+
     
     
 }

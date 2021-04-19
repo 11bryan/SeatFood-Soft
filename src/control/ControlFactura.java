@@ -54,7 +54,7 @@ public class ControlFactura {
    private void cancelar(){
         V_mesas mesa = new V_mesas();
         ControlPedido pedido = new ControlPedido();
-        pedido.iniciacontrol();
+        //pedido.iniciacontrol();
         mesa.setVisible(true);
         mesa.setLocationRelativeTo(null);
         vmesas.setVisible(false);

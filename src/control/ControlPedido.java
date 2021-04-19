@@ -8,25 +8,29 @@ package control;
 import Vista.V_clientes;
 import Vista.V_mesas;
 import Vista.V_productos;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
 import javax.swing.JOptionPane;
-import modelo.ConexionPGA;
+import javax.swing.table.DefaultTableModel;
+import javax.xml.ws.Holder;
+import modelo.Cliente;
+import modelo.empleados;
 import modelo.modelo_cliente;
-import modelo.modelo_entrega;
+import modelo.modelo_empleados;
 import modelo.modelo_pedido;
 import modelo.modelo_producto;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
+import modelo.pedido;
+import modelo.producto;
+
 
 /**
  *
@@ -36,184 +40,228 @@ public class ControlPedido {
 
     private modelo_pedido mpedido;
     private V_mesas vpedido;
+    private modelo_empleados mempleado;
+    private modelo_cliente mcliente;
+    private static String cedula;
+    private String id_empleado;
+    private String id_producto;
+    
+    private static int contador=-1;
+    
 
     public ControlPedido() {
+        
     }
 
-    public ControlPedido(modelo_pedido mpedido, V_mesas vpedido) {
+    public ControlPedido(modelo_pedido mpedido, V_mesas vpedido, modelo_empleados mempleado, modelo_cliente mcliente) {
         this.mpedido = mpedido;
         this.vpedido = vpedido;
-        vpedido.setVisible(true);
-        vpedido.setLocationRelativeTo(null);
+        this.mempleado = mempleado;
+        this.mcliente = mcliente;
+        
+        vpedido.getTxt_consumidor().setEditable(false);
+        vpedido.getTxt_empledo().setEditable(false);
+        
     }
-
-    public void iniciacontrol() {
-        KeyListener kl = new KeyListener() {
+    public void iniciacontrol(){
+        cargaclientes("");
+        cargaempleados("");
+        cargaproducto("");
+//        vpedido.getBtn_n1().addActionListener(l -> pedido1());
+//        vpedido.getBtn_n2().addActionListener(l -> pedido1());
+//        vpedido.getBtn_n3().addActionListener(l -> pedido1());
+//        vpedido.getBtn_n4().addActionListener(l -> pedido1());
+//        vpedido.getBtn_n5().addActionListener(l -> pedido1());
+//        vpedido.getBtn_n6().addActionListener(l -> pedido1());
+        vpedido.getBtn_cerrar().addActionListener(l ->cerrar());
+        vpedido.getBtn_generar().addActionListener(l ->grabarpedido());
+        vpedido.getBtn_factura().addActionListener(l ->mostrarfactura());
+        vpedido.getBtn_cancelar_d2().addActionListener(l ->Cancelar());
+        
+        MouseListener mo=new MouseListener(){
             @Override
-            public void keyTyped(KeyEvent e) {
-                //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            public void mouseClicked(MouseEvent e) {
             }
 
             @Override
-            public void keyPressed(KeyEvent e) {
-                //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            public void mousePressed(MouseEvent e) {
+                cargar();
+                cargar1();
+                cargar2();
             }
 
             @Override
-            public void keyReleased(KeyEvent e) {
-
-                //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            public void mouseReleased(MouseEvent e) {
             }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+            
         };
-        vpedido.getBtn_Reporte().addActionListener(l -> imprimereporte());
-        vpedido.getBtn_guardar().addActionListener(l -> grabarpedido());
-        vpedido.getBtn_mesas().addActionListener(l -> abrirmesas());
-        vpedido.getBtn_producto().addActionListener(l -> abrirproducto());
-        vpedido.getBtn_factura().addActionListener(l -> abrirfactura());
-        vpedido.getBtn_cancelar().addActionListener(l -> cancelacion());
-        vpedido.getBtn_cliente().addActionListener(l -> abrircliente());
-        vpedido.getBtn_n1().addActionListener(l -> pedido1());
-        vpedido.getBtn_n2().addActionListener(l -> pedido1());
-        vpedido.getBtn_n3().addActionListener(l -> pedido1());
-        vpedido.getBtn_n4().addActionListener(l -> pedido1());
-        vpedido.getBtn_n5().addActionListener(l -> pedido1());
-        vpedido.getBtn_n6().addActionListener(l -> pedido1());
-        vpedido.getBtn_n7().addActionListener(l -> pedido1());
-        vpedido.getBtn_n8().addActionListener(l -> pedido1());
-        vpedido.getBtn_n9().addActionListener(l -> pedido1());
-        vpedido.getBtn_n10().addActionListener(l -> pedido1());
-        vpedido.getBtn_n11().addActionListener(l -> pedido1());
-        vpedido.getBtn_n12().addActionListener(l -> pedido1());
-        vpedido.getCb_Entrega().addActionListener(l -> entrega());
-        vpedido.getBtn_factura().addActionListener(l->facturapedido());
-
+        
+        
+        vpedido.getTb_clientes().addMouseListener(mo);
+        vpedido.getTb_empleados().addMouseListener(mo);
+        vpedido.getTb_productos().addMouseListener(mo);
     }
+    
+    private void mostrarfactura() {
+        vpedido.setVisible(false);
+        vpedido.getDialog_factura().setLocationRelativeTo(null);
+        vpedido.getDialog_factura().setVisible(true);
+        vpedido.getDialog_factura().setSize(420, 430);
+        vpedido.getDialog_factura().setTitle("CLIENTE");
+        vpedido.getTxt_cedulafactura().setEditable(false);
+         modelo_pedido mp=new modelo_pedido(vpedido.getTxt_idpedido().getText(), 
+                vpedido.getTxt_empledo().getText(), 
+                ids, vpedido.getTxt_consumidor().getText());
+         
+         Calendar cal = new GregorianCalendar();
+        int mesA = cal.get(Calendar.MONTH);
+        int anioA = cal.get(Calendar.YEAR);
+        int diaA = cal.get(Calendar.DAY_OF_MONTH);
+        vpedido.getTxt_fecha().setText(anioA+"-"+mesA+"-"+diaA);
 
-    private void productos() {
-        ControlProducto prod = new ControlProducto();
-
+         vpedido.getTxt_cedulafactura().setText(mp.getCedula());
     }
+    
+    private void cargaclientes(String aguja) {
+     
+        DefaultTableModel tblmodelo  ;
+        tblmodelo = (DefaultTableModel) vpedido.getTb_clientes().getModel();
+        tblmodelo.setNumRows(0);
 
-    private void imprimereporte() {
-        ConexionPGA con = new ConexionPGA();
-        try {
-            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Pedidos.jasper"));
-            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
-            jv.setVisible(true);
-        } catch (JRException ex) {
-            Logger.getLogger(ControlProducto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-      public int id_incrementable(){
-         int id=1;
-         PreparedStatement ps=null;
-          ResultSet rs=null;
-          ConexionPGA con =new ConexionPGA();
-           try {
-            ps=con.getCon().prepareStatement("SELECT MAX(id_pedido) from pedido");
-           rs=ps.executeQuery();
+        List<Cliente> listac = modelo_cliente.lista_cliente(aguja);
+        int ncols = tblmodelo.getColumnCount();
+            Holder<Integer> i = new Holder<>(0);
+        
+            listac.stream().forEach(p1 -> {
+            tblmodelo.addRow(new Object[ncols]);
             
-       
-            while (rs.next()) {
-                id=rs.getInt(1)+1;  
-            }
-            
-            rs.close();
-            ps.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(modelo_producto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
-      }
-    private void grabarpedido() {
-   /*  String id = vpedido.gett
-       
-        id_pedido, id_empleado, id_producto, id_entrega, cedula, p_adicinal
-        modelo_entrega entrega = new modelo_entrega(cedula, nombre, apellido, rol);
+            vpedido.getTb_clientes().setValueAt(p1.getCedula(), i.value, 0);
+            vpedido.getTb_clientes().setValueAt(p1.getNombre(), i.value, 1);
+            vpedido.getTb_clientes().setValueAt(p1.getApellido(), i.value, 2);
+            //vpedido.getTb_clientes().setValueAt(p1.getDireccion(), i.value, 3);
+            //vpedido.getTb_clientes().setValueAt(p1.getTelefono(), i.value, 4);
+            i.value++;
+            ;
 
-        if (entrega.) {
-            cargalista("");
-            vpedido.getDialog_mesas().setVisible(false);
-            JOptionPane.showMessageDialog(vpedido, "Pedido grabado satisfactoriamente");
-        } else {
-            JOptionPane.showMessageDialog(vpedido, "ERROR");
-        }*/
+        });
+    }
+     
+    private void cargaempleados(String aguja) {
+
+        DefaultTableModel tblmodelo;
+        tblmodelo = (DefaultTableModel) vpedido.getTb_empleados().getModel();
+        tblmodelo.setNumRows(0);
+
+        List<empleados> listac = modelo_empleados.lista_empleados(aguja);
+        int ncols = tblmodelo.getColumnCount();
+        Holder<Integer> i = new Holder<>(0);
+        listac.stream().forEach(p1 -> {
+            tblmodelo.addRow(new Object[ncols]);
+            vpedido.getTb_empleados().setValueAt(p1.getId_empleado(), i.value, 0);
+            vpedido.getTb_empleados().setValueAt(p1.getNombre(), i.value, 1);
+            vpedido.getTb_empleados().setValueAt(p1.getApellido(), i.value, 2);
+            //vpedido.getTb_empleados().setValueAt(p1.getRol(), i.value, 3);
+            i.value++;
+            ;
+
+        });
+    }
+             
+    public void cargaproducto(String aguja) {
+        
+        DefaultTableModel tblmodelo;
+        tblmodelo = (DefaultTableModel) vpedido.getTb_productos().getModel();
+        tblmodelo.setNumRows(0);
+        List<producto> lista = modelo_producto.lista_producto(aguja);
+        
+        int ncols = tblmodelo.getColumnCount();
+        Holder<Integer> i = new Holder<>(0);
+        lista.stream().forEach(p1 -> {
+            tblmodelo.addRow(new Object[ncols]);
+            vpedido.getTb_productos().setValueAt(p1.getId_producto(), i.value, 0);
+            vpedido.getTb_productos().setValueAt(p1.getNombre(), i.value, 1);
+            //vpedido.getTb_productos().setValueAt(p1.getTipo(), i.value, 2);
+           // vpedido.getTb_productos().setValueAt(p1.getCantidad(), i.value, 3);
+           // vpedido.getTb_productos().setValueAt(p1.getDescripcion(), i.value, 4);
+            vpedido.getTb_productos().setValueAt(p1.getPrecio(), i.value, 2);
+            //completar datos
+            
+            i.value++;
+            ;
+
+        });
 
     }
     
-
-    private void facturapedido() {
-        V_mesas abremesa = new V_mesas();
-        abremesa.getDialog_factura().setVisible(true);
-        abremesa.getDialog_factura().setSize(350, 500);
-        abremesa.getDialog_factura().setLocationRelativeTo(null);
+    public void cargar(){
         
-
+        int ind = vpedido.getTb_clientes().getSelectedRow();
+        if (ind >-1) {
+            vpedido.getTxt_consumidor().setText(vpedido.getTb_clientes().getValueAt(ind, 0).toString()
+            );
+            
+        }
+        
     }
-
-    private void entrega() {
-        if (vpedido.getCb_Entrega().isSelected()) {
-            modelo_entrega en = new modelo_entrega();
-            V_mesas men = new V_mesas();
-            ControlEntrega entrega = new ControlEntrega(en, men);
-        } else {
-            vpedido.getDialog_factura().setVisible(true);
+    public void cargar1(){
+        
+        int ind2 = vpedido.getTb_empleados().getSelectedRow();
+        if (ind2 >-1) {
+            vpedido.getTxt_empledo().setText(vpedido.getTb_empleados().getValueAt(ind2, 0).toString()
+            );
+            
         }
     }
-
-    private void pedido1() {
-        V_mesas abremesa = new V_mesas();
-        abremesa.getDialog_mesas().setVisible(true);
-        abremesa.getDialog_mesas().setSize(350, 500);
-        abremesa.getDialog_mesas().setLocationRelativeTo(null);
-        vpedido.setVisible(false);
-
+    String ids="";
+    
+    public void cargar2(){
+        
+        int ind2 = vpedido.getTb_productos().getSelectedRow();
+        Holder<Integer> i = new Holder<>(0);
+        if (ind2 >-1) {
+            contador++;
+            String id=vpedido.getTb_productos().getValueAt(ind2, 0).toString();
+            ids=ids+" "+id;
+            String nombre=vpedido.getTb_productos().getValueAt(ind2, 1).toString();
+            String precio=vpedido.getTb_productos().getValueAt(ind2, 2).toString();
+            vpedido.getTb_pedido().setValueAt(id, contador, 0);
+            vpedido.getTb_pedido().setValueAt(nombre, contador, 1);
+            vpedido.getTb_pedido().setValueAt(precio, contador, 2);
+            
+        }
+        
+    }
+    
+    public void grabarpedido(){
+        modelo_pedido mp=new modelo_pedido(vpedido.getTxt_idpedido().getText(), 
+                vpedido.getTxt_empledo().getText(), 
+                ids, vpedido.getTxt_consumidor().getText());
+       
+        if (mp.grabarPedido()) {
+            JOptionPane.showMessageDialog(vpedido, "Pedido grabado satisfactoriaamente");
+            ids="";
+        } else {
+            JOptionPane.showMessageDialog(vpedido, "ERROR");
+        }
+    }
+    
+    
+    void cerrar(){
+        vpedido.dispose();
     }
 
-    private void abrirproducto() {
-        V_productos producto = new V_productos();
-        modelo_producto prod = new modelo_producto();
-        producto.setVisible(true);
-        ControlProducto control = new ControlProducto(prod, producto);
-        control.iniciacontrol();
-        vpedido.setVisible(false);
+    
+    void Cancelar(){
+        vpedido.getDialog_factura().setVisible(false);
+        vpedido.setVisible(true);
     }
 
-    private void abrircliente() {
-        V_clientes cliente = new V_clientes();
-        modelo_cliente cli = new modelo_cliente();
-        ControlCliente clientes = new ControlCliente(cli, cliente);
-        clientes.iniciacontrol();
-        cliente.setVisible(true);
-        vpedido.setVisible(false);
-    }
-
-    private void abrirmesas() {
-        V_mesas mesa = new V_mesas();
-        modelo_pedido ped = new modelo_pedido();
-        ControlPedido pedido = new ControlPedido(ped, mesa);
-        pedido.iniciacontrol();
-        mesa.setVisible(true);
-        mesa.setLocationRelativeTo(null);
-        vpedido.setVisible(false);
-
-    }
-
-    private void abrirfactura() {
-        V_mesas mesa = new V_mesas();
-        mesa.getDialog_factura().setVisible(true);
-
-    }
-
-    private void cancelacion() {
-        V_mesas mesa = new V_mesas();
-        modelo_pedido ped = new modelo_pedido();
-        ControlPedido pedido = new ControlPedido(ped, mesa);
-        pedido.iniciacontrol();
-        mesa.setVisible(true);
-        mesa.setLocationRelativeTo(null);
-        vpedido.setVisible(false);
-    }
 }

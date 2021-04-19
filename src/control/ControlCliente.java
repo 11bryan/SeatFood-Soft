@@ -49,7 +49,7 @@ public class ControlCliente {
 
     public void iniciacontrol() {
         vcliente.getBtn_Reporte().addActionListener(l -> imprimereporte());
-       vcliente.getBtn_Actualizar().addActionListener(l->cargalista(""));
+        vcliente.getBtn_Actualizar().addActionListener(l->cargalista(""));
         vcliente.getBtn_Nuevo().addActionListener(l -> mostrardialogo());
         vcliente.getBtn_Guardar().addActionListener(l -> grabar());
         vcliente.getBtn_Editar().addActionListener(l -> editar());
@@ -59,6 +59,7 @@ public class ControlCliente {
         vcliente.getBtn_factura().addActionListener(l -> abrirfactura());
         vcliente.getBtn_Cancelar().addActionListener(l -> cancelacion());
         vcliente.getBtn_Actualizar_diag().addActionListener(l -> actualizarcliente());
+        vcliente.getBtn_cerrar().addActionListener(l->salir());
     }
 
     private void imprimereporte() {
@@ -75,7 +76,7 @@ public class ControlCliente {
 
     private void mostrardialogo() {
         vcliente.getBtn_Actualizar_diag().setVisible(false);
-        vcliente.getDlg_clientes().setSize(320, 450);
+        vcliente.getDlg_clientes().setSize(320, 430);
         vcliente.getDlg_clientes().setTitle("CLIENTE");
         vcliente.getDlg_clientes().setLocationRelativeTo(null);
         vcliente.setVisible(false);
@@ -101,6 +102,7 @@ public class ControlCliente {
         if (cliente.grabarCliente()) {
             cargalista("");
             vcliente.getDlg_clientes().setVisible(false);
+            vcliente.setVisible(true);
             JOptionPane.showMessageDialog(vcliente, "Cliente grabado satisfactoriamente");
         } else {
             JOptionPane.showMessageDialog(vcliente, "ERROR");
@@ -110,24 +112,21 @@ public class ControlCliente {
 
     private void cargalista(String aguja) {
      
-        DefaultTableModel tblmodelo;
+        DefaultTableModel tblmodelo  ;
         tblmodelo = (DefaultTableModel) vcliente.getTb_Clientes().getModel();
         tblmodelo.setNumRows(0);
 
         List<Cliente> listac = modelo_cliente.lista_cliente(aguja);
-        listac.stream().forEach(p1 -> {
-            int ncols = tblmodelo.getColumnCount();
+        int ncols = tblmodelo.getColumnCount();
             Holder<Integer> i = new Holder<>(0);
-            String[] Cliente = {p1.getCedula(), p1.getNombre(), p1.getApellido(), p1.getDireccion(), p1.getTelefono()};
-            tblmodelo.addRow(Cliente);
+        
+            listac.stream().forEach(p1 -> {
             tblmodelo.addRow(new Object[ncols]);
             vcliente.getTb_Clientes().setValueAt(p1.getCedula(), i.value, 0);
             vcliente.getTb_Clientes().setValueAt(p1.getNombre(), i.value, 1);
             vcliente.getTb_Clientes().setValueAt(p1.getApellido(), i.value, 2);
             vcliente.getTb_Clientes().setValueAt(p1.getDireccion(), i.value, 3);
             vcliente.getTb_Clientes().setValueAt(p1.getTelefono(), i.value, 4);
-            //completar datos
-
             i.value++;
             ;
 
@@ -135,12 +134,13 @@ public class ControlCliente {
     }
 
     private void editar() {
-        vcliente.getDlg_clientes().setLocationRelativeTo(null);
-        vcliente.setVisible(false);
-        vcliente.getBtn_Actualizar_diag().setVisible(true);
+        
         int ind = vcliente.getTb_Clientes().getSelectedRow();
         if (ind != -1) {
             mostrardialogo();
+            vcliente.getDlg_clientes().setLocationRelativeTo(null);
+            vcliente.setVisible(false);
+            vcliente.getBtn_Actualizar_diag().setVisible(true);
             vcliente.getBtn_Guardar().setVisible(false);
             vcliente.getTxt_idUser().setEditable(false);
             vcliente.getTb_Clientes().setSize(700, 500);
@@ -178,7 +178,6 @@ public class ControlCliente {
         }
     }
 
-  
 
     private void actualizarcliente() {
         String cedula = vcliente.getTxt_idUser().getText();
@@ -190,6 +189,7 @@ public class ControlCliente {
         if (cliente.actualiza(cedula)) {
             cargalista("");
             vcliente.getDlg_clientes().setVisible(false);
+            vcliente.setVisible(true);
             JOptionPane.showMessageDialog(vcliente, "Cliente editado satisfactoriamente");
         } else {
             JOptionPane.showMessageDialog(vcliente, "ERROR");
@@ -204,8 +204,8 @@ public class ControlCliente {
         V_mesas mesa = new V_mesas();
         mesa.setVisible(true);
         modelo_pedido ped=new modelo_pedido();
-        ControlPedido pedido = new ControlPedido(ped,mesa);
-        pedido.iniciacontrol();
+        //ControlPedido pedido = new ControlPedido(ped,mesa);
+        //pedido.iniciacontrol();
 
     }
 
@@ -221,10 +221,18 @@ public class ControlCliente {
     private void abrirfactura() {
         V_mesas mesa = new V_mesas();
         mesa.getDialog_factura().setVisible(true);
+        
 
     }
 
     private void cancelacion() {
         vcliente.setVisible(true);
+        vcliente.getDlg_clientes().setVisible(false);
     }
-}
+
+
+
+
+private void salir(){
+   vcliente.dispose();   
+  }}

@@ -42,7 +42,7 @@ public class modelo_empleados extends empleados{
             query+="UPPER(rol) LIKE UPPER('%"+aguja+"%')";            
             
             ResultSet rs=con.query(query);
-            List<empleados> lista=new ArrayList<>();
+            List<empleados> lista=new ArrayList<empleados>();
             
             while (rs.next()) {
                 empleados e=new empleados();
@@ -84,4 +84,6 @@ public class modelo_empleados extends empleados{
             return false;
         }
     }
+    
+    
 }

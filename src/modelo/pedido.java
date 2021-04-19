@@ -6,21 +6,16 @@ public class pedido {
     private String id_pedido;
     private String id_empleado;
     private String id_producto;
-    private String id_entrega;
     private String cedula;
-    private String p_adicinal;
 
     public pedido() {
     }
-    
 
-    public pedido(String id_pedido, String id_empleado, String id_producto, String id_entrega, String cedula, String p_adicinal) {
+    public pedido(String id_pedido, String id_empleado, String id_producto, String cedula) {
         this.id_pedido = id_pedido;
         this.id_empleado = id_empleado;
         this.id_producto = id_producto;
-        this.id_entrega = id_entrega;
         this.cedula = cedula;
-        this.p_adicinal = p_adicinal;
     }
 
     public String getId_pedido() {
@@ -47,14 +42,6 @@ public class pedido {
         this.id_producto = id_producto;
     }
 
-    public String getId_entrega() {
-        return id_entrega;
-    }
-
-    public void setId_entrega(String id_entrega) {
-        this.id_entrega = id_entrega;
-    }
-
     public String getCedula() {
         return cedula;
     }
@@ -62,16 +49,7 @@ public class pedido {
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
+    
 
-    public String getP_adicinal() {
-        return p_adicinal;
-    }
-
-    public void setP_adicinal(String p_adicinal) {
-        this.p_adicinal = p_adicinal;
-    }
-    
-    
-    
-    
+   
 }
